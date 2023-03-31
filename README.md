@@ -1,4 +1,9 @@
-# LearningChain
+# learning-chain
+
+## Install Node.js
+```bash
+asdf install
+```
 
 ## Install dependencies
 
