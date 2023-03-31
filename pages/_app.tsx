@@ -1,5 +1,4 @@
 /* eslint-disable react/react-in-jsx-scope*/
-
 import { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 
