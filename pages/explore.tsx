@@ -7,9 +7,9 @@ import CategoryFilter from "../components/CategoryList";
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph } = Typography;
 
-const Explore = ({ children }:any) => {
+const Explore = ({ children }: any) => {
   function CourseList() {
-    const CourseItem = ({ course }:any) => (
+    const CourseItem = ({ course }: any) => (
       <div className="w-1/4 px-4 mb-8">
         <Card
           hoverable
@@ -71,9 +71,7 @@ const Explore = ({ children }:any) => {
 
   return (
     <Layout>
-      <Header>
-        <Navbar></Navbar>
-      </Header>
+      <Navbar></Navbar>
 
       <Content className="mt-8" style={{ padding: "0 50px" }}>
         <CourseList />
