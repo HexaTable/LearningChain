@@ -20,9 +20,7 @@ export default async function handle(req, res) {
       where: { id: userId },
       data: { name, image, wallet, rating },
     });
-    res.status(200).json({ message: "User updated" });
-  } else {
-    console.log("User could not be modified");
-    res.status(400).json({ message: "User could not be modified" });
+
+    res.status(200).json({ message: "User updated", data: user });
   }
 }
