@@ -1,17 +1,46 @@
 import { createElement } from "react";
-import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
-import { Avatar, List, Space } from "antd";
+import { GetServerSideProps } from "next";
+import { MessageOutlined, StarOutlined } from "@ant-design/icons";
+import { List, Space } from "antd";
 import DashboardLayout from "../../../components/DashboardLayout/DashboardLayout";
 
-const data = Array.from({ length: 23 }).map((_, i) => ({
-  href: "https://ant.design",
-  title: `ant design part ${i}`,
-  avatar: `https://joesch.moe/api/v1/random?key=${i}`,
-  description:
-    "Ant Design, a design language for background applications, is refined by Ant UED Team.",
-  content:
-    "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
-}));
+import prisma from "../../../lib/prisma";
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const courses = await prisma.course.findMany();
+  // Refer to this issue: https://github.com/vercel/next.js/issues/13209#issuecomment-633149650
+  const parsedCourses = JSON.parse(JSON.stringify(courses));
+
+  // Add author name to each course
+  const newCourses = parsedCourses.map(async (course) => {
+    const author = await prisma.user.findUnique({
+      where: {
+        id: course.authorId,
+      },
+    });
+
+    return {
+      ...course,
+      author_name: author.name,
+    };
+  });
+
+  return {
+    props: {
+      courses: await Promise.all(newCourses),
+    },
+  };
+};
+
+interface CourseProps {
+  name: string;
+  description: string;
+  author_id: string;
+  author_name: string;
+  rating: number;
+  price: number;
+  category: string;
+}
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
   <Space>
@@ -20,41 +49,36 @@ const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
   </Space>
 );
 
-const ListCourses: React.FC = () => (
+const getRandomInt = (min: number, max: number) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+const ListCourses: React.FC = ({ courses }: any) => (
   <DashboardLayout>
     <List
       itemLayout="vertical"
       size="large"
+      style={{ width: "100%" }}
       pagination={{
-        onChange: (page) => {
-          console.log(page);
-        },
-        pageSize: 3,
+        pageSize: 4,
       }}
-      dataSource={data}
-      footer={
-        <div>
-          <b>ant design</b> footer part
-        </div>
-      }
-      renderItem={(item) => (
+      dataSource={courses}
+      renderItem={(course: CourseProps) => (
         <List.Item
-          key={item.title}
+          key={course.name}
           actions={[
             <IconText
               icon={StarOutlined}
-              text="156"
-              key="list-vertical-star-o"
-            />,
-            <IconText
-              icon={LikeOutlined}
-              text="156"
-              key="list-vertical-like-o"
+              text={course.rating.toFixed(1)}
+              key="list-vertical-stars"
             />,
             <IconText
               icon={MessageOutlined}
-              text="2"
-              key="list-vertical-message"
+              text={getRandomInt(0, 10).toString()}
+              key="list-vertical-messages"
             />,
           ]}
           extra={
@@ -66,11 +90,10 @@ const ListCourses: React.FC = () => (
           }
         >
           <List.Item.Meta
-            avatar={<Avatar src={item.avatar} />}
-            title={<a href={item.href}>{item.title}</a>}
-            description={item.description}
+            title={<a href={"/"}>{course.name}</a>}
+            description={course.description}
           />
-          {item.content}
+          Created by: {course.author_name}
         </List.Item>
       )}
     />
