@@ -1,9 +1,9 @@
 import React from "react";
-import { Button, Form, Input, Row, Space, Layout } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import { Button, Form, Input, Row, Space, Layout, Avatar } from "antd";
+import { UploadOutlined, UserOutlined } from "@ant-design/icons";
 import DashboardLayout from "../../../components/DashboardLayout/DashboardLayout";
 
-function NewCourse() {
+function EditUser() {
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
@@ -30,29 +30,34 @@ function NewCourse() {
           onFinish={onFinish}
           validateMessages={validateMessages}
         >
-          <Row className="text-extrabold text-3xl my-3 mx-6">New Course</Row>
+          <Row className="text-extrabold text-3xl my-3 mx-6">User Profile</Row>
           <Space />
           <Form.Item
             name={["user", "name"]}
             label="Name"
             rules={[{ required: true }]}
           >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name={["user", "value"]}
-            label="Value"
-            rules={[{ required: true }]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item name={["user", "introduction"]} label="Description">
             <Input.TextArea />
           </Form.Item>
-          <Form.Item name={["user", "introduction"]} label="Image">
-            <Button icon={<UploadOutlined />}>Upload</Button>
+          <Form.Item
+            name={["user", "email"]}
+            label="Email"
+            rules={[{ required: true }]}
+          >
+            <Input.TextArea />
           </Form.Item>
-
+          <Form.Item name={["user", "username"]} label="Username">
+            <Input.TextArea />
+          </Form.Item>
+          <Form.Item name={["user", "introduction"]} label="Avatar">
+            <Space wrap size={16}>
+              <Avatar shape="square" size={64} icon={<UserOutlined />} />
+            </Space>
+            <div className="mt-3">
+              {" "}
+              <Button icon={<UploadOutlined />}>Upload</Button>{" "}
+            </div>
+          </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 3 }}>
             <Button type="primary" htmlType="submit">
               Submit
@@ -64,4 +69,4 @@ function NewCourse() {
   );
 }
 
-export default NewCourse;
+export default EditUser;

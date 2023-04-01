@@ -1,17 +1,11 @@
-import { Layout } from 'antd';
-import React from 'react';
-import Sidebar from '../components/Sidebar/Sidebar';
-
-
+import DashboardLayout from "../components/DashboardLayout/DashboardLayout";
 
 const Dashboard: React.FC = () => {
-
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Sidebar />
-    </Layout>
+    <DashboardLayout>
+      <h1>Dashboard</h1>
+    </DashboardLayout>
   );
 };
-
 
 export default Dashboard;

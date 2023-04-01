@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import { List, Card, Typography, Pagination, Select } from 'antd';
+import React, { useState } from "react";
+import { Card, Pagination, Select } from "antd";
 
-const { Title, Paragraph } = Typography;
 const { Option } = Select;
 
-const CategoryList = ({ courses }) => {
+const CategoryList = ({ courses }:any) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const categories = courses.reduce((acc, course) => {
     if (!acc.includes(course.category)) {
@@ -21,7 +20,9 @@ const CategoryList = ({ courses }) => {
     setCurrentPage(1);
   };
 
-  const filteredCourses = selectedCategory ? courses.filter((course) => course.category === selectedCategory) : courses;
+  const filteredCourses = selectedCategory
+    ? courses.filter((course) => course.category === selectedCategory)
+    : courses;
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -29,13 +30,25 @@ const CategoryList = ({ courses }) => {
 
   const indexOfLastCourse = currentPage * pageSize;
   const indexOfFirstCourse = indexOfLastCourse - pageSize;
-  const currentCourses = filteredCourses.slice(indexOfFirstCourse, indexOfLastCourse);
+  const currentCourses = filteredCourses.slice(
+    indexOfFirstCourse,
+    indexOfLastCourse
+  );
 
   return (
     <div className="container mx-auto py-8">
       <div className="flex items-center mb-4">
-        <h1 className="text-3xl font-bold ml-4">{selectedCategory ? `Courses in ${selectedCategory}` : 'Search Courses'}</h1>
-        <Select className="ml-4" style={{ width: 200 }} placeholder="Select a category" onChange={handleCategoryChange}>
+        <h1 className="text-3xl font-bold ml-4">
+          {selectedCategory
+            ? `Courses in ${selectedCategory}`
+            : "Search Courses"}
+        </h1>
+        <Select
+          className="ml-4"
+          style={{ width: 200 }}
+          placeholder="Select a category"
+          onChange={handleCategoryChange}
+        >
           <Option value="">All categories</Option>
           {categories.map((category) => (
             <Option key={category} value={category}>
@@ -47,8 +60,14 @@ const CategoryList = ({ courses }) => {
       <div className="flex flex-wrap -mx-4">
         {currentCourses.map((course) => (
           <div key={course.id} className="w-1/4 px-4 mb-8">
-            <Card hoverable cover={<img alt={course.title} src={course.image} />}>
-              <Card.Meta title={course.title} description={course.description} />
+            <Card
+              hoverable
+              cover={<img alt={course.title} src={course.image} />}
+            >
+              <Card.Meta
+                title={course.title}
+                description={course.description}
+              />
               <div className="mt-4 flex justify-between items-center">
                 <span>{course.category}</span>
                 <span>{course.price}</span>
