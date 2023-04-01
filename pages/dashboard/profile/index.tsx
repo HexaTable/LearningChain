@@ -36,10 +36,10 @@ function User() {
           <Row className="text-extrabold text-3xl my-3 mx-6">User Profile</Row>
           <Space />
           <Form.Item name={["user", "name"]} label="Name">
-            <p>{session.user.name}</p>
+            <p>{session?.user.name}</p>
           </Form.Item>
           <Form.Item name={["user", "email"]} label="Email">
-            <p>{session.user.email}</p>
+            <p>{session?.user.email}</p>
           </Form.Item>
           <Form.Item name={["user", "username"]} label="Username"></Form.Item>
           <Form.Item name={["user", "introduction"]} label="Image">

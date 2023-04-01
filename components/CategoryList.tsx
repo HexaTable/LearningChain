@@ -5,7 +5,7 @@ const { Option } = Select;
 
 const CategoryList = ({ courses }: any) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(4);
+  const [pageSize, _setPageSize] = useState(4);
   const [selectedCategory, setSelectedCategory] = useState("");
 
   const categories = courses.reduce((acc, course) => {
