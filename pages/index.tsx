@@ -27,9 +27,11 @@ const Index = () => {
                 Peer to peer learning of the future.
               </h2>
               <Link key="/api/auth/signin" href="/api/auth/signin">
-                <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
-                  Join Us!
-                </p>
+                <a>
+                  <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
+                    Join Us!
+                  </p>
+                </a>
               </Link>
             </div>
           </div>
@@ -46,20 +48,22 @@ const Index = () => {
                 <div className="container mx-auto w-f text-white mt-3">
                   <p className="text-center">
                     Start, switch, or advance your career with more than 5,400
-                    courses, Professional Certificates, and degrees from
+                    courses, professional certificates, and degrees from
                     world-class universities and companies.
                   </p>
                   <p className="text-center mt-4">
                     Or maybe create your own course and help teach other people
-                    in the vast areas you are profeciante at.
+                    in the vast areas you are proficient at.
                   </p>
                 </div>
               </div>
-              <a key="/explore" href="/explore">
-                <p className="w-1/2 mx-auto bg-white text-primary font-bold text-center text-bold text-xl mt-16 py-5 px-2 rounded-lg">
-                  Explore Courses
-                </p>
-              </a>
+              <Link key="/explore" href="/explore">
+                <a>
+                  <p className="w-1/2 mx-auto bg-white text-primary font-bold text-center text-bold text-xl mt-16 py-5 px-2 rounded-lg">
+                    Explore Courses
+                  </p>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -75,7 +79,7 @@ const Index = () => {
                 <div className="container mx-auto w-f text-primary mt-3">
                   <p className="text-center">
                     We believe education is one of the most aspects when it
-                    comes to being a memember of society. With that philosophy
+                    comes to being a member of society. With that philosophy
                     and technologies like Web3 and Blockchain being normalized
                     more and more we believe its the time for Web3 to reach
                     Education.
