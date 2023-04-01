@@ -2,6 +2,7 @@ import { ethers } from "ethers";
 import { Web3Provider } from "@ethersproject/providers";
 import { Button, ButtonProps } from "antd";
 import { useState } from "react";
+import { NotifyError, NotifySuccess } from "./Notify";
 
 interface MetaMaskButtonProps extends ButtonProps {
   onConnect?: (address: string) => void;
@@ -14,6 +15,13 @@ export default function MetaMaskButton(props: MetaMaskButtonProps) {
   async function connectToMetaMask() {
     try {
       setConnecting(true);
+
+      if (!(window as any).ethereum) {
+        NotifyError("MetaMask not detected", "Please install MetaMask to use this feature");
+        throw new Error("MetaMask not detected.");
+      } else {
+        NotifySuccess("MetaMask detected", "Metamask extension detected with success");
+      }
       await (window as any).ethereum.request({ method: "eth_requestAccounts" });
       const provider = new Web3Provider((window as any).ethereum);
       const signer = provider.getSigner();
