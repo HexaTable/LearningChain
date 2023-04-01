@@ -3,6 +3,9 @@ import Sidebar from '../../../components/Sidebar/Sidebar';
 import { Layout } from 'antd';
 import React, { useState } from 'react';
 
+import {
+    UploadOutlined
+} from '@ant-design/icons';
 
 
 
@@ -33,33 +36,38 @@ function New() {
     return (
         <Layout style={{ minHeight: '100vh' }}>
             <Sidebar />
-            <Form
-                {...layout}
-                name="nest-messages"
-                className='mt-8 py-4'
-                onFinish={onFinish}
-                style={{ maxWidth: 300, maxHeight: 600 }}
-                validateMessages={validateMessages}
-            >
-                <h1 className='text-extrabold text-3xl my-3 mx-6'>New Course</h1>
-                <hr className='my-3 mx-3' />
-                <Form.Item name={['user', 'name']} label="Name" rules={[{ required: true }]}>
-                    <Input />
-                </Form.Item>
-                <Form.Item name={['user', 'value']} label="Value" rules={[{ required: true }]}>
-                    <Input />
-                </Form.Item>
-                <Form.Item name={['user', 'introduction']} label="Description">
-                    <Input.TextArea />
-                </Form.Item>
-                <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 3 }}>
-                    <Button type="primary" htmlType="submit">
-                        Submit
-                    </Button>
-                </Form.Item>
+            <Layout>
+                <Form
+                    {...layout}
+                    name="nest-messages"
+                    className='mt-8 py-1'
+                    style={{ maxWidth: 800 }}
+                    onFinish={onFinish}
+                    validateMessages={validateMessages}
+                >
+                    <h1 className='text-extrabold text-3xl my-3 mx-6'>New Course</h1>
+                    <hr className='my-3 mx-3' />
+                    <Form.Item name={['user', 'name']} label="Name" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name={['user', 'value']} label="Value" rules={[{ required: true }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item name={['user', 'introduction']} label="Description">
+                        <Input.TextArea />
+                    </Form.Item>
+                    <Form.Item name={['user', 'introduction']} label="Image">
+                        <Button icon={<UploadOutlined />}>Upload</Button>
+                    </Form.Item>
 
-            </Form>
-        </Layout>
+                    <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 3 }}>
+                        <Button type="primary" htmlType="submit">
+                            Submit
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </Layout>
+        </Layout >
     )
 
 };
