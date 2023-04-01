@@ -1,53 +1,54 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
+import { faker } from "@faker-js/faker";
 
 const prisma = new PrismaClient();
 
 async function main() {
-  const user1 = await prisma.user.create({
-    data: {
-      name: 'Alice',
-      email: 'alice@example.com',
-      wallet: "0x0000000"
-    },
-  });
+  // Seed users
+  for (let i = 0; i < 10; i++) {
+    const user = await prisma.user.create({
+      data: {
+        name: faker.name.firstName() + " " + faker.name.lastName(),
+        email: faker.internet.email(),
+        wallet: faker.finance.bitcoinAddress(),
+      },
+    });
+    console.log(`Created user with email: ${user.email}`);
+  }
 
-  const user2 = await prisma.user.create({
-    data: {
-      name: 'Bob',
-      email: 'bob@example.com',
-    },
-  });
+  // Seed categories
+  for (let i = 0; i < 10; i++) {
+    const category = await prisma.category.create({
+      data: {
+        name: faker.commerce.department(),
+      },
+    });
+    console.log(`Created category with name: ${category.name}`);
+  }
 
-  const course1 = await prisma.course.create({
-    data: {
-      name: 'Introduction to Prisma',
-      description: 'Learn how to use Prisma to build a modern database layer for your applications',
-      author: { connect: { id: user1.id } },
-      price: 29.99,
-      category: { create: { name: 'Programming' } },
-      rating: 5.0,
-    },
-  });
+  // Seed courses
+  const users = await prisma.user.findMany();
+  const categories = await prisma.category.findMany();
+  for (let i = 0; i < 10; i++) {
+    const random_category =
+      categories[Math.floor(Math.random() * categories.length)];
+    const random_user = users[Math.floor(Math.random() * users.length)];
 
-  const course2 = await prisma.course.create({
-    data: {
-      name: 'GraphQL with Apollo',
-      description: 'Build a GraphQL API with Apollo Server and connect it to a database using Prisma',
-      author: { connect: { id: user2.id } },
-      price: 49.99,
-      category: { create: { name: 'Web Development' } },
-      rating: 4.0,
-    },
-  });
-
-  console.log(`Created user with email: ${user1.email}`);
-  console.log(`Created user with email: ${user2.email}`);
-  console.log(`Created course with name: ${course1.name}`);
-  console.log(`Created course with name: ${course2.name}`);
+    const course = await prisma.course.create({
+      data: {
+        name: faker.commerce.productName(),
+        author: { connect: { id: random_user.id } },
+        description: faker.lorem.paragraph(),
+        price: Math.random() * 100,
+        category: { connect: { id: random_category.id } },
+        rating: Math.random() * 5,
+      },
+    });
+    console.log(`Created course with name: ${course.name}`);
+  }
 }
 
-main()
-  .catch((e) => console.error(e))
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+// Seed the database
+main().finally(async () => {
+  await prisma.$disconnect();
+});
