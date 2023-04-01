@@ -51,8 +51,83 @@ model User {
   updatedAt     DateTime  @updatedAt @map(name: "updated_at")
   accounts      Account[]
   sessions      Session[]
+  wallet        String?
+  rating        Float?
+  coursesCreated  Course[]
+  coursesPurchased UserCoursesPurchased[]
+  nfts          NFT[]
 
   @@map(name: "users")
+}
+
+model Course {
+  id          String    @id @default(cuid())
+  name        String
+  description String
+  createdAt   DateTime  @default(now()) @map(name: "created_at")
+  updatedAt   DateTime  @updatedAt @map(name: "updated_at")
+  author      User      @relation(fields: [authorId], references: [id])
+  authorId    String    @map("author_id")
+  rating      Float
+  price       Float
+  image       String?
+  category    Category  @relation(fields: [categoryId], references: [id])
+  categoryId  String    @map("category_id")
+  students    UserCoursesPurchased[]
+  nfts        NFT[]
+
+  @@map(name: "courses")
+}
+
+model UserCoursesPurchased {
+  id       String @id @default(cuid())
+  userId   String
+  courseId String
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  transaction Transaction?
+
+  @@map(name: "users_courses_purchased")
+
+  @@unique([userId, courseId])
+  
+  user     User   @relation(fields: [userId], references: [id])
+  course   Course @relation(fields: [courseId], references: [id])
+}
+
+model Transaction {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now()) @map(name: "created_at")
+  updatedAt   DateTime  @updatedAt @map(name: "updated_at")
+  amount      Float
+  description String
+  hash        String?
+  purchasedCourse UserCoursesPurchased? @relation(fields: [purchasedCourseId], references: [id])
+  purchasedCourseId String? @unique @map("purchased_item_id")
+ 
+  @@map(name: "transactions")
+}
+
+
+model NFT {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now()) @map(name: "created_at")
+  updatedAt   DateTime  @updatedAt @map(name: "updated_at")
+  name        String
+  description String
+  image       String
+  price       Float
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String    @map("user_id")
+  course      Course    @relation(fields: [courseId], references: [id])
+  courseId    String    @map("course_id")
+
+  @@map(name: "nfts")
+}
+
+model Category {
+  id      String    @id @default(cuid())
+  name    String
+  courses Course[]
 }
 
 model VerificationToken {
