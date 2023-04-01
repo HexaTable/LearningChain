@@ -1,20 +1,14 @@
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { DesktopOutlined, PieChartOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
 
 const { Header } = Layout;
 
-type MenuItem = Required<MenuProps>["items"][number];
-
 function getItem(
-  label: React.ReactNode,
   key: React.Key,
+  label: React.ReactNode,
   icon?: React.ReactNode,
   children?: MenuItem[]
 ): MenuItem {
@@ -26,16 +20,30 @@ function getItem(
   } as MenuItem;
 }
 
-const items1: MenuItem[] = [
-  getItem("Explore", "1", <PieChartOutlined />),
-  getItem("Subscribed", "2", <DesktopOutlined />),
-  getItem("Dashboard", "3", <DesktopOutlined />),
+type MenuItem = Required<MenuProps>["items"][number];
+const items: MenuItem[] = [
+  getItem("/", "Explore", <PieChartOutlined />),
+  getItem("/dashboard", "Dashboard", <DesktopOutlined />),
 ];
 
 function Navbar() {
+  const [current, setCurrent] = useState("/");
+  const router = useRouter();
+
+  const onClick: MenuProps["onClick"] = (e) => {
+    setCurrent(e.key);
+    router.push(e.key);
+  };
+
   return (
     <Header style={{ position: "sticky", top: 0, zIndex: 1, width: "100%" }}>
-      <Menu theme="dark" mode="horizontal" items={items1} />
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        onClick={onClick}
+        selectedKeys={[current]}
+        items={items}
+      />
     </Header>
   );
 }

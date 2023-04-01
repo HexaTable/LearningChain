@@ -20,20 +20,23 @@ function Sidebar() {
       onCollapse={(value) => setCollapsed(value)}
     >
       <div className="logo" />
+
       <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
         <Item icon={<HomeOutlined />}>
           <Link href="/">LOGO</Link>
         </Item>
+
         <hr className="my-2"></hr>
+
         <Item icon={<HomeOutlined />}>
           <Link href="/dashboard">Home</Link>
         </Item>
         <SubMenu icon={<BookOutlined />} title="Courses">
           <Item key="/courses/new">
-            <Link href={"/dashboard/courses/new"}>List Course</Link>
+            <Link href={"/dashboard/courses"}>List courses</Link>
           </Item>
           <Item key="/courses/new">
-            <Link href="/dashboard/courses/new">New Course</Link>
+            <Link href="/dashboard/courses/new">New course</Link>
           </Item>
         </SubMenu>
         <SubMenu icon={<SettingOutlined />} title="Settings">

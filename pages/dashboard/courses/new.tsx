@@ -1,7 +1,7 @@
-import { Button, Form, Input, InputNumber } from "antd";
+import React from "react";
+import { Button, Form, Input, Row, Space } from "antd";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import { Layout } from "antd";
-import React, { useState } from "react";
 
 import { UploadOutlined } from "@ant-design/icons";
 
@@ -40,8 +40,8 @@ function New() {
           onFinish={onFinish}
           validateMessages={validateMessages}
         >
-          <h1 className="text-extrabold text-3xl my-3 mx-6">New Course</h1>
-          <hr className="my-3 mx-3" />
+          <Row className="text-extrabold text-3xl my-3 mx-6">New Course</Row>
+          <Space />
           <Form.Item
             name={["user", "name"]}
             label="Name"
