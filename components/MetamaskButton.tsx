@@ -29,7 +29,13 @@ export default function MetaMaskButton(props: MetaMaskButtonProps) {
   }
 
   return (
-    <Button type="primary" onClick={connectToMetaMask} loading={connecting} className="bg-blue-500 hover:bg-blue-600" {...props}>
+    <Button
+      type="primary"
+      onClick={connectToMetaMask}
+      loading={connecting}
+      className="bg-blue-500 hover:bg-blue-600"
+      {...props}
+    >
       {address ? "Connected successfully to MetaMask" : "Connect to MetaMask"}
     </Button>
   );
