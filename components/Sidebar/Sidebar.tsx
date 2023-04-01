@@ -26,24 +26,27 @@ function Sidebar() {
           <Link href="/">LOGO</Link>
         </Item>
 
-        <hr className="my-2"></hr>
+        <hr className="my-2" />
 
         <Item icon={<HomeOutlined />}>
           <Link href="/dashboard">Home</Link>
         </Item>
+
         <SubMenu icon={<BookOutlined />} title="Courses">
-          <Item key="/courses/new">
+          <Item key="/courses">
             <Link href={"/dashboard/courses"}>List courses</Link>
           </Item>
           <Item key="/courses/new">
             <Link href="/dashboard/courses/new">New course</Link>
           </Item>
         </SubMenu>
+
         <SubMenu icon={<SettingOutlined />} title="Settings">
           <Item key="/profile">Profile</Item>
           <Item key="/profile/edit">Edit Profile</Item>
           <Item key="/config">Configuration</Item>
         </SubMenu>
+
         <Item icon={<AppstoreOutlined />}>
           {" "}
           <Link href="/"> Go Back</Link>
