@@ -70,6 +70,7 @@ model Course {
   authorId    String                 @map("author_id")
   rating      Float                  @default(0.0)
   price       Float
+  numReviews  Int                    @default(0) @map("num_reviews")
   image       String?
   category    Category               @relation(fields: [categoryId], references: [id])
   categoryId  String                 @map("category_id")
