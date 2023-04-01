@@ -63,12 +63,12 @@ model User {
 model Course {
   id          String                 @id @default(cuid())
   name        String
-  description String
+  description String?
   createdAt   DateTime               @default(now()) @map(name: "created_at")
   updatedAt   DateTime               @updatedAt @map(name: "updated_at")
   author      User                   @relation(fields: [authorId], references: [id])
   authorId    String                 @map("author_id")
-  rating      Float
+  rating      Float                  @default(0.0)
   price       Float
   image       String?
   category    Category               @relation(fields: [categoryId], references: [id])
