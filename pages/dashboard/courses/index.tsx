@@ -2,7 +2,7 @@ import { createElement } from "react";
 import { GetServerSideProps } from "next";
 import { MessageOutlined, StarOutlined } from "@ant-design/icons";
 import { List, Space } from "antd";
-import DashboardLayout from "../../../components/DashboardLayout/DashboardLayout";
+import DashboardLayout from "../../../components/DashboardLayout";
 
 import prisma from "../../../lib/prisma";
 

@@ -9,13 +9,13 @@ import {
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 const { SubMenu, Item } = Menu;
 const { Header } = Layout;
 
 function Navbar() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const [current, setCurrent] = useState("/");
   const router = useRouter();
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/Navbar";
 
 export const getStaticProps: GetStaticProps = async () => {
   return {

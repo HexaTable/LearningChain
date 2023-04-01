@@ -20,5 +20,6 @@ module.exports = {
   rules: {
     "no-undef": "off",
     "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-explicit-any": "off",
   },
 };

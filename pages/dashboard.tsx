@@ -1,4 +1,4 @@
-import DashboardLayout from "../components/DashboardLayout/DashboardLayout";
+import DashboardLayout from "../components/DashboardLayout";
 
 const Dashboard: React.FC = () => {
   return (

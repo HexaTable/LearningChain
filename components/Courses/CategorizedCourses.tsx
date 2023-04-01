@@ -1,30 +1,31 @@
 import React, { useState } from "react";
-import { Card, Pagination, Select } from "antd";
+import { Pagination, Select } from "antd";
+import CourseInfo from "../CourseInfo";
 
 const { Option } = Select;
 
-const CategoryList = ({ courses }: any) => {
+const CategorizedCourses = ({ courses }: any) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, _setPageSize] = useState(4);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const categories = courses.reduce((acc, course) => {
+  const categories = courses.reduce((acc: any, course: any) => {
     if (!acc.includes(course.category)) {
       acc.push(course.category);
     }
     return acc;
   }, []);
 
-  const handleCategoryChange = (value) => {
+  const handleCategoryChange = (value: any) => {
     setSelectedCategory(value);
     setCurrentPage(1);
   };
 
   const filteredCourses = selectedCategory
-    ? courses.filter((course) => course.category === selectedCategory)
+    ? courses.filter((course: any) => course.category === selectedCategory)
     : courses;
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
 
@@ -57,25 +58,13 @@ const CategoryList = ({ courses }: any) => {
           ))}
         </Select>
       </div>
+
       <div className="flex flex-wrap -mx-4">
         {currentCourses.map((course) => (
-          <div key={course.id} className="w-1/4 px-4 mb-8">
-            <Card
-              hoverable
-              cover={<img alt={course.title} src={course.image} />}
-            >
-              <Card.Meta
-                title={course.title}
-                description={course.description}
-              />
-              <div className="mt-4 flex justify-between items-center">
-                <span>{course.category}</span>
-                <span>{course.price}</span>
-              </div>
-            </Card>
-          </div>
+          <CourseInfo course={course} key={course.id} />
         ))}
       </div>
+
       <div className="flex justify-center mt-8">
         <Pagination
           current={currentPage}
@@ -89,4 +78,4 @@ const CategoryList = ({ courses }: any) => {
   );
 };
 
-export default CategoryList;
+export default CategorizedCourses;
