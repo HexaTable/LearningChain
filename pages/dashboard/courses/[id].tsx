@@ -2,11 +2,9 @@ import DashboardLayout from "../../../components/DashboardLayout";
 import { Button, Space, Tag } from "antd";
 
 function Course({ id }: any) {
-
   const enrolled: boolean = false;
 
   return (
-
     <DashboardLayout>
       <div className="mx-8 mt-2 w-full">
         <h1 className="text-3xl">Course {id}</h1>
@@ -29,10 +27,9 @@ function Course({ id }: any) {
           htmlType="submit"
           style={{ backgroundColor: "#002140" }}
         >
-          {enrolled ? ("Enrolled") : ("Enroll")}
+          {enrolled ? "Enrolled" : "Enroll"}
         </Button>
       </div>
-
     </DashboardLayout>
   );
 }

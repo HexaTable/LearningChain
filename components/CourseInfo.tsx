@@ -13,12 +13,16 @@ interface CourseInfoProps {
 
 const CourseInfo = ({ course }: CourseInfoProps) => {
   return (
-    <div className="w-1/4 px-4 mb-8" >
-      <a href={`/dashboard/courses/${course.id}`} >
+    <div className="w-1/4 px-4 mb-8">
+      <a href={`/dashboard/courses/${course.id}`}>
         <Card
           hoverable
           cover={
-            <img alt={course.title} src={course.image} className="w-200 h-100" />
+            <img
+              alt={course.title}
+              src={course.image}
+              className="w-200 h-100"
+            />
           }
         >
           <Card.Meta title={course.title} description={course.description} />
@@ -28,7 +32,7 @@ const CourseInfo = ({ course }: CourseInfoProps) => {
           </div>
         </Card>
       </a>
-    </div >
+    </div>
   );
 };
 
