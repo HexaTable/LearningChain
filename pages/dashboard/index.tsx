@@ -1,4 +1,6 @@
-import DashboardLayout from "../components/DashboardLayout";
+import DashboardLayout from "../../components/DashboardLayout";
+
+import AllCourses from "../../components/Courses/AllCourses";
 
 const Dashboard: React.FC = () => {
   return (
