@@ -33,6 +33,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 interface CourseProps {
+  id: string;
   name: string;
   description: string;
   author_id: string;
@@ -90,7 +91,9 @@ const ListCourses: React.FC = ({ courses }: any) => (
           }
         >
           <List.Item.Meta
-            title={<a href={"/"}>{course.name}</a>}
+            title={
+              <a href={`/dashboard/courses/${course.id}`}>{course.name}</a>
+            }
             description={course.description}
           />
           Created by: {course.author_name}
