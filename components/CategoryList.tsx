@@ -3,7 +3,7 @@ import { Card, Pagination, Select } from "antd";
 
 const { Option } = Select;
 
-const CategoryList = ({ courses }:any) => {
+const CategoryList = ({ courses }: any) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
   const [selectedCategory, setSelectedCategory] = useState("");

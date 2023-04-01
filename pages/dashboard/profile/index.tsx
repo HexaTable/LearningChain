@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Form, Input, Row, Space, Layout, Avatar } from "antd";
-import { UploadOutlined, UserOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import DashboardLayout from "../../../components/DashboardLayout/DashboardLayout";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 function User() {
   const { data: session, status } = useSession();
