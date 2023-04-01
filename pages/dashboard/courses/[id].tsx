@@ -2,7 +2,7 @@ import DashboardLayout from "../../../components/DashboardLayout";
 import { Button, Space, Tag } from "antd";
 
 function Course({ id }: any) {
-  const enrolled: boolean = false;
+  const enrolled = false;
 
   return (
     <DashboardLayout>
