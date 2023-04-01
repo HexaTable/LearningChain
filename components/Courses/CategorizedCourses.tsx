@@ -4,17 +4,14 @@ import CourseInfo from "../CourseInfo";
 
 const { Option } = Select;
 
-const CategorizedCourses = ({ courses }: any) => {
+const CategorizedCourses = ({ courses, categories }: any) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, _setPageSize] = useState(4);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [pageSize] = useState(4);
+  const [selectedCategory, setSelectedCategory] = useState<any>();
 
-  const categories = courses.reduce((acc: any, course: any) => {
-    if (!acc.includes(course.category)) {
-      acc.push(course.category);
-    }
-    return acc;
-  }, []);
+  const getSelectedCategoryName = categories.find(
+    (category: any) => category.id === selectedCategory
+  )?.name;
 
   const handleCategoryChange = (value: any) => {
     setSelectedCategory(value);
@@ -22,7 +19,7 @@ const CategorizedCourses = ({ courses }: any) => {
   };
 
   const filteredCourses = selectedCategory
-    ? courses.filter((course: any) => course.category === selectedCategory)
+    ? courses.filter((course: any) => course.categoryId === selectedCategory)
     : courses;
 
   const handlePageChange = (page: number) => {
@@ -41,7 +38,7 @@ const CategorizedCourses = ({ courses }: any) => {
       <div className="flex items-center mb-4">
         <h1 className="text-3xl font-bold ml-4">
           {selectedCategory
-            ? `Courses in ${selectedCategory}`
+            ? `Courses in ${getSelectedCategoryName}`
             : "Search Courses"}
         </h1>
         <Select
@@ -51,16 +48,16 @@ const CategorizedCourses = ({ courses }: any) => {
           onChange={handleCategoryChange}
         >
           <Option value="">All categories</Option>
-          {categories.map((category) => (
-            <Option key={category} value={category}>
-              {category}
+          {categories.map((category: { id: string; name: string }) => (
+            <Option value={category.id} key={category.id}>
+              {category.name}
             </Option>
           ))}
         </Select>
       </div>
 
       <div className="flex flex-wrap -mx-4">
-        {currentCourses.map((course) => (
+        {currentCourses.map((course: any) => (
           <CourseInfo course={course} key={course.id} />
         ))}
       </div>

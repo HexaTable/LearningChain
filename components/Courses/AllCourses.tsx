@@ -3,17 +3,9 @@ import { Pagination } from "antd";
 
 import CourseInfo from "../CourseInfo";
 
-import coursesData from "../../data/courses.json";
-
-const AllCourses = () => {
+const AllCourses = ({ courses }: any) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, _setPageSize] = useState(4);
-  const [courses, _setCourses] = useState(
-    coursesData
-      .slice()
-      .sort((a, b) => b.num_reviews - a.num_reviews)
-      .slice(0, 20)
-  );
+  const [pageSize] = useState(4);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);

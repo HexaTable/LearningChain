@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Data Structures and Algorithms in Java",
+    "name": "Data Structures and Algorithms in Java",
     "description": "Learn about data structures and algorithms with Java programming language.",
     "category": "Computer Science",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "title": "Introduction to Artificial Intelligence",
+    "name": "Introduction to Artificial Intelligence",
     "description": "Get introduced to the concepts and techniques of AI with Python programming language.",
     "category": "Artificial Intelligence",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "title": "Full Stack Web Development with MERN",
+    "name": "Full Stack Web Development with MERN",
     "description": "Learn how to build full stack web applications using the MERN (MongoDB, Express.js, React, Node.js) stack.",
     "category": "Web Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "title": "Python for Data Science and Machine Learning",
+    "name": "Python for Data Science and Machine Learning",
     "description": "Master the Python programming language for data science and machine learning.",
     "category": "Data Science",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "title": "Front End Web Development with React",
+    "name": "Front End Web Development with React",
     "description": "Learn how to build modern front end web applications using React library.",
     "category": "Web Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -51,7 +51,7 @@
   },
   {
     "id": 6,
-    "title": "Java Programming for Beginners",
+    "name": "Java Programming for Beginners",
     "description": "Learn the basics of Java programming language for beginners.",
     "category": "Computer Science",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -61,7 +61,7 @@
   },
   {
     "id": 7,
-    "title": "Deep Learning with TensorFlow",
+    "name": "Deep Learning with TensorFlow",
     "description": "Learn about deep learning and neural networks with TensorFlow framework.",
     "category": "Machine Learning",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -71,7 +71,7 @@
   },
   {
     "id": 8,
-    "title": "Blockchain and Cryptocurrency",
+    "name": "Blockchain and Cryptocurrency",
     "description": "Get introduced to blockchain and cryptocurrencies.",
     "category": "Blockchain",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -81,7 +81,7 @@
   },
   {
     "id": 9,
-    "title": "Advanced Algorithms and Data Structures",
+    "name": "Advanced Algorithms and Data Structures",
     "description": "Master advanced algorithms and data structures using Java.",
     "category": "Computer Science",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -91,7 +91,7 @@
   },
   {
     "id": 10,
-    "title": "Artificial Intelligence for Business",
+    "name": "Artificial Intelligence for Business",
     "description": "Learn how to leverage AI for business strategy and decision-making.",
     "category": "Artificial Intelligence",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -101,7 +101,7 @@
   },
   {
     "id": 11,
-    "title": "Mobile App Development with Flutter",
+    "name": "Mobile App Development with Flutter",
     "description": "Learn how to build mobile apps with Google's Flutter framework.",
     "category": "Mobile Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -111,7 +111,7 @@
   },
   {
     "id": 12,
-    "title": "Full Stack Web Development with Node.js",
+    "name": "Full Stack Web Development with Node.js",
     "description": "Become a full stack web developer using Node.js, Express, and MongoDB.",
     "category": "Web Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -121,7 +121,7 @@
   },
   {
     "id": 13,
-    "title": "Mathematics for Machine Learning",
+    "name": "Mathematics for Machine Learning",
     "description": "Learn the math behind machine learning and deep learning algorithms.",
     "category": "Machine Learning",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -131,7 +131,7 @@
   },
   {
     "id": 14,
-    "title": "Game Development with Unity",
+    "name": "Game Development with Unity",
     "description": "Learn how to create 2D and 3D games using Unity and C#.",
     "category": "Game Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -141,7 +141,7 @@
   },
   {
     "id": 15,
-    "title": "Python for Finance",
+    "name": "Python for Finance",
     "description": "Learn how to use Python for financial analysis, portfolio management, and trading.",
     "category": "Finance",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -151,7 +151,7 @@
   },
   {
     "id": 16,
-    "title": "Cybersecurity Fundamentals",
+    "name": "Cybersecurity Fundamentals",
     "description": "Learn the basics of cybersecurity, including encryption, network security, and threat management.",
     "category": "Cybersecurity",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -161,7 +161,7 @@
   },
   {
     "id": 17,
-    "title": "Data Structures and Algorithms in Java",
+    "name": "Data Structures and Algorithms in Java",
     "description": "Learn about data structures and algorithms with Java programming language.",
     "category": "Computer Science",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -171,7 +171,7 @@
   },
   {
     "id": 18,
-    "title": "Introduction to Artificial Intelligence",
+    "name": "Introduction to Artificial Intelligence",
     "description": "Get introduced to the concepts and techniques of AI with Python programming language.",
     "category": "Artificial Intelligence",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -181,7 +181,7 @@
   },
   {
     "id": 19,
-    "title": "Full Stack Web Development with MERN",
+    "name": "Full Stack Web Development with MERN",
     "description": "Learn how to build full stack web applications using the MERN (MongoDB, Express.js, React, Node.js) stack.",
     "category": "Web Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -191,7 +191,7 @@
   },
   {
     "id": 20,
-    "title": "Python for Data Science and Machine Learning",
+    "name": "Python for Data Science and Machine Learning",
     "description": "Master the Python programming language for data science and machine learning.",
     "category": "Data Science",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -201,7 +201,7 @@
   },
   {
     "id": 21,
-    "title": "Front End Web Development with React",
+    "name": "Front End Web Development with React",
     "description": "Learn how to build modern front end web applications using React library.",
     "category": "Web Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -211,7 +211,7 @@
   },
   {
     "id": 22,
-    "title": "Java Programming for Beginners",
+    "name": "Java Programming for Beginners",
     "description": "Learn the basics of Java programming language for beginners.",
     "category": "Computer Science",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -221,7 +221,7 @@
   },
   {
     "id": 23,
-    "title": "Deep Learning with TensorFlow",
+    "name": "Deep Learning with TensorFlow",
     "description": "Learn about deep learning and neural networks with TensorFlow framework.",
     "category": "Machine Learning",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -231,7 +231,7 @@
   },
   {
     "id": 24,
-    "title": "Blockchain and Cryptocurrency",
+    "name": "Blockchain and Cryptocurrency",
     "description": "Get introduced to blockchain and cryptocurrencies.",
     "category": "Blockchain",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -241,7 +241,7 @@
   },
   {
     "id": 25,
-    "title": "Advanced Algorithms and Data Structures",
+    "name": "Advanced Algorithms and Data Structures",
     "description": "Master advanced algorithms and data structures using Java.",
     "category": "Computer Science",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -251,7 +251,7 @@
   },
   {
     "id": 26,
-    "title": "Artificial Intelligence for Business",
+    "name": "Artificial Intelligence for Business",
     "description": "Learn how to leverage AI for business strategy and decision-making.",
     "category": "Artificial Intelligence",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -261,7 +261,7 @@
   },
   {
     "id": 27,
-    "title": "Mobile App Development with Flutter",
+    "name": "Mobile App Development with Flutter",
     "description": "Learn how to build mobile apps with Google's Flutter framework.",
     "category": "Mobile Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -271,7 +271,7 @@
   },
   {
     "id": 28,
-    "title": "Full Stack Web Development with Node.js",
+    "name": "Full Stack Web Development with Node.js",
     "description": "Become a full stack web developer using Node.js, Express, and MongoDB.",
     "category": "Web Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -281,7 +281,7 @@
   },
   {
     "id": 29,
-    "title": "Mathematics for Machine Learning",
+    "name": "Mathematics for Machine Learning",
     "description": "Learn the math behind machine learning and deep learning algorithms.",
     "category": "Machine Learning",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -291,7 +291,7 @@
   },
   {
     "id": 30,
-    "title": "Game Development with Unity",
+    "name": "Game Development with Unity",
     "description": "Learn how to create 2D and 3D games using Unity and C#.",
     "category": "Game Development",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -301,7 +301,7 @@
   },
   {
     "id": 31,
-    "title": "Python for Finance",
+    "name": "Python for Finance",
     "description": "Learn how to use Python for financial analysis, portfolio management, and trading.",
     "category": "Finance",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
@@ -311,7 +311,7 @@
   },
   {
     "id": 32,
-    "title": "Cybersecurity Fundamentals",
+    "name": "Cybersecurity Fundamentals",
     "description": "Learn the basics of cybersecurity, including encryption, network security, and threat management.",
     "category": "Cybersecurity",
     "image": "https://res.cloudinary.com/teepublic/image/private/s--TwCcIoc_--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1520050660/production/designs/2416585_0.jpg",
