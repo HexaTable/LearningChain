@@ -22,7 +22,7 @@ function getItem(
 
 type MenuItem = Required<MenuProps>["items"][number];
 const items: MenuItem[] = [
-  getItem("/", "Explore", <PieChartOutlined />),
+  getItem("/explore", "Explore", <PieChartOutlined />),
   getItem("/dashboard", "Dashboard", <DesktopOutlined />),
 ];
 

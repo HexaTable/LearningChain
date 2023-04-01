@@ -42,8 +42,9 @@ function Sidebar() {
         </SubMenu>
 
         <SubMenu icon={<SettingOutlined />} title="Settings">
-          <Item key="/profile">Profile</Item>
-          <Item key="/profile/edit">Edit Profile</Item>
+          <Item key="/profile">
+            <Link href="/dashboard/profile">Profile</Link>
+          </Item>
           <Item key="/config">Configuration</Item>
         </SubMenu>
 

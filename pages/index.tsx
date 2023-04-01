@@ -1,6 +1,6 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/Navbar";
 
 import prisma from "../lib/prisma";
 
