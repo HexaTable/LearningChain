@@ -1,11 +1,9 @@
 import React from "react";
-import { Button, Form, Input, Row, Space } from "antd";
-import Sidebar from "../../../components/Sidebar/Sidebar";
-import { Layout } from "antd";
-
+import { Button, Form, Input, Row, Space, Layout } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
+import DashboardLayout from "../../../components/DashboardLayout/DashboardLayout";
 
-function New() {
+function NewCourse() {
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
@@ -14,13 +12,6 @@ function New() {
   /* eslint-disable no-template-curly-in-string */
   const validateMessages = {
     required: "${label} is required!",
-    types: {
-      email: "${label} is not a valid email!",
-      number: "${label} is not a valid number!",
-    },
-    number: {
-      range: "${label} must be between ${min} and ${max}",
-    },
   };
   /* eslint-enable no-template-curly-in-string */
 
@@ -29,8 +20,7 @@ function New() {
   };
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Sidebar />
+    <DashboardLayout>
       <Layout>
         <Form
           {...layout}
@@ -70,8 +60,8 @@ function New() {
           </Form.Item>
         </Form>
       </Layout>
-    </Layout>
+    </DashboardLayout>
   );
 }
 
-export default New;
+export default NewCourse;

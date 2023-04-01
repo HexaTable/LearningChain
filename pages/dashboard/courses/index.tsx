@@ -1,7 +1,7 @@
+import { createElement } from "react";
 import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
-import { Avatar, List, Space, Layout } from "antd";
-import React from "react";
-import Sidebar from "../../../components/Sidebar/Sidebar";
+import { Avatar, List, Space } from "antd";
+import DashboardLayout from "../../../components/DashboardLayout/DashboardLayout";
 
 const data = Array.from({ length: 23 }).map((_, i) => ({
   href: "https://ant.design",
@@ -15,14 +15,13 @@ const data = Array.from({ length: 23 }).map((_, i) => ({
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
   <Space>
-    {React.createElement(icon)}
+    {createElement(icon)}
     {text}
   </Space>
 );
 
 const ListCourses: React.FC = () => (
-  <Layout style={{ minHeight: "100vh" }}>
-    <Sidebar />
+  <DashboardLayout>
     <List
       itemLayout="vertical"
       size="large"
@@ -75,7 +74,7 @@ const ListCourses: React.FC = () => (
         </List.Item>
       )}
     />
-  </Layout>
+  </DashboardLayout>
 );
 
 export default ListCourses;
