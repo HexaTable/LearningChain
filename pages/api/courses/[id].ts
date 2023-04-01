@@ -1,28 +1,35 @@
-// pages/api/courses/[id].ts
+import prisma from "../../../lib/prisma";
 
-import prisma from '../../../lib/prisma';
+// METHOD /api/courses/:id
+export default async function handle(req: any, res: any) {
+  const courseId: string = req.query.id;
+  const body = JSON.parse(req.body);
 
-// PUT /api/publish/:id
-export default async function handle(req, res) {
-  const postId: string = req.query.id;
-  const { name, description, price, image, category } = req.body;
-
-  // DELETE /api/post/:id
-  if (req.method === 'DELETE') {
-    const post = await prisma.course.delete({
-      where: { id: postId },
+  // DELETE /api/courses/:id
+  if (req.method === "DELETE") {
+    await prisma.course.delete({
+      where: { id: courseId },
     });
-    res.json(post);
+
+    res.status(200).json({ message: "Course deleted" });
   }
-  else if (req.method === 'PUT') {
-    const post = await prisma.course.update({
-      where: { id: postId },
-      data: { name, description, price, image, category },
+
+  // PUT /api/courses/:id
+  else if (req.method === "PUT") {
+    const category = await prisma.category.findFirst({
+      where: { name: body.category },
     });
-    res.status(200).json({ message: 'Course updated' })
-  }
-  else {
-    console.log("Course could not be modified")
-    res.status(400).json({ message: "Course could not be modified" })
+
+    const result = await prisma.course.update({
+      where: { id: courseId },
+      data: {
+        name: body.name,
+        description: body.description,
+        category: { connect: { id: category.id } },
+        price: parseFloat(body.price),
+      },
+    });
+
+    res.status(200).json({ message: "Course updated", data: result });
   }
 }
