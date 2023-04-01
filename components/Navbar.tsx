@@ -9,19 +9,27 @@ import {
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 const { SubMenu, Item } = Menu;
 const { Header } = Layout;
 
 function Navbar() {
   const { data: session } = useSession();
-  const [current, setCurrent] = useState("/");
+
+  const current_path = useRouter().pathname;
+  const [current, setCurrent] = useState(current_path);
+  
   const router = useRouter();
 
   const onClick: MenuProps["onClick"] = (e) => {
     setCurrent(e.key);
     router.push(e.key);
+  };
+
+  const logout = async () => {
+    await signOut();
+    router.push("/");
   };
 
   return (
@@ -49,15 +57,15 @@ function Navbar() {
             title={session.user.name}
           >
             <Item key="/dashboard" icon={<DesktopOutlined />}>
-              <Link href="/dashboard">Dashboard</Link>
+              <Link href="/">Dashboard</Link>
             </Item>
-            <Item icon={<UserOutlined />}>
-              <Link href="/api/auth/logout">Log Out</Link>
+            <Item onClick={logout} icon={<UserOutlined />}>
+              Log out
             </Item>
           </SubMenu>
         ) : (
-          <Item icon={<UserOutlined />}>
-            <Link href="/api/auth/signin">LogIn</Link>
+          <Item key="/api/auth/signin" icon={<UserOutlined />}>
+            Login
           </Item>
         )}
       </Menu>
