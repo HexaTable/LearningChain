@@ -17,5 +17,8 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "@typescript-eslint"],
-  rules: {},
+  rules: {
+    "no-undef": "off",
+    "react/react-in-jsx-scope": "off",
+  },
 };
