@@ -3,8 +3,6 @@ import { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
 import "../globals.css";
 
-import "../globals.css";
-
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <SessionProvider session={pageProps.session}>
