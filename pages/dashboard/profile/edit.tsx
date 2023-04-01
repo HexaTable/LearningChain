@@ -1,7 +1,11 @@
 import React from "react";
 import { Button, Form, Input, Row, Space, Layout, Avatar } from "antd";
 import { UploadOutlined, UserOutlined } from "@ant-design/icons";
+<<<<<<< HEAD
 import DashboardLayout from "../../../components/DashboardLayout";
+=======
+import DashboardLayout from "../../../components/DashboardLayout/DashboardLayout";
+>>>>>>> main
 
 function EditUser() {
   const layout = {
