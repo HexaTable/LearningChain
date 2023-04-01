@@ -33,12 +33,12 @@ contract OnlineCourse {
             author: payable(msg.sender),
             price: price,
             totalStudents: 0
-        }
-    );
-}
+            }
+        );
+    }
     
-    function purchaseCourse(string memory courseId) public payable {
-        require(bytes(courseId).length > 0, "Course ID cannot be empty");
+    function purchaseCourse(string memory userId) public payable {
+        require(bytes(userId).length > 0, "Course ID cannot be empty");
         require(course.author != address(0), "Course does not exist");
         require(msg.value == course.price, "Incorrect payment amount");
         //require(bytes(courseProgress[msg.sender].userId).length == 0, "Course already purchased");
@@ -46,7 +46,7 @@ contract OnlineCourse {
         //course.students[msg.sender] = true;
         course.totalStudents += 1;
         
-        emit CoursePurchased(msg.sender, courseId, msg.value);
+        emit CoursePurchased(msg.sender, userId, msg.value);
     }
     
     function updateCourseProgress(string memory userId, uint256 progress, bool completed, address certificate) public {
