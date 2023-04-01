@@ -8,7 +8,6 @@ contract OnlineCourse {
         address payable author;
         uint256 price;
         uint256 totalStudents;
-        //mapping(address => bool) students;
     }
     
     Course public course;
@@ -24,7 +23,7 @@ contract OnlineCourse {
     
     event CoursePurchased(address buyer, string userId, uint256 price);
     event CourseProgressUpdated(address student, string userId, uint256 progress, bool completed);
-    event CertificateIssued(address student, string courseId, address certificate);
+    event CertificateIssued(address student, string userId, address certificate);
     
     function createCourse(string memory courseId, uint256 price) public {
         require(bytes(courseId).length > 0, "Course ID cannot be empty");
@@ -41,17 +40,17 @@ contract OnlineCourse {
         require(bytes(userId).length > 0, "Course ID cannot be empty");
         require(course.author != address(0), "Course does not exist");
         require(msg.value == course.price, "Incorrect payment amount");
-        //require(bytes(courseProgress[msg.sender].userId).length == 0, "Course already purchased");
+        require(bytes(courseProgress[msg.sender].userId).length == 0, "Course already purchased");
         
-        //course.students[msg.sender] = true;
         course.totalStudents += 1;
+        courseProgress[msg.sender] = CourseProgress(userId, 0, false, address(0));
         
         emit CoursePurchased(msg.sender, userId, msg.value);
     }
     
     function updateCourseProgress(string memory userId, uint256 progress, bool completed, address certificate) public {
         require(bytes(userId).length > 0, "Course ID cannot be empty");
-        //require(bytes(courseProgress[msg.sender].userId).length > 0, "Course not purchased");
+        require(bytes(courseProgress[msg.sender].userId).length > 0, "Course not purchased");
         
         courseProgress[msg.sender] = CourseProgress(userId, progress, completed, certificate);
         
