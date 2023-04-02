@@ -5,6 +5,8 @@ import { StarOutlined, MessageOutlined } from "@ant-design/icons";
 import { List, Space } from "antd";
 
 import DashboardLayout from "../../../components/DashboardLayout";
+import { NotifyError } from "../../../components/Notify";
+import { useRouter } from "next/router";
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
   <Space>
@@ -25,17 +27,23 @@ interface CourseProps {
 
 const MineCourses = () => {
   const [courses, setCourses] = useState([]);
+
   const { data: session } = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchCourses = async () => {
       const email = session?.user?.email;
-      const response = await fetch(`/api/courses/user/${email}`, {
-        method: "GET",
-      });
-
-      const data = await response.json();
-      setCourses(data);
+      try {
+        const response = await fetch(`/api/courses/user/${email}`, {
+          method: "GET",
+        });
+        const data = await response.json();
+        setCourses(data);
+      } catch (error) {
+        NotifyError("Error", "Could not fetch courses");
+        router.back();
+      }
     };
 
     fetchCourses();

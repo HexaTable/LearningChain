@@ -59,7 +59,11 @@ function EditUser() {
             </div>
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 3 }}>
-            <Button type="primary" htmlType="submit" style={{ backgroundColor: "#002140" }}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ backgroundColor: "#002140" }}
+            >
               Submit
             </Button>
           </Form.Item>
