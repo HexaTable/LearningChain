@@ -87,4 +87,4 @@ const MineCourses = () => {
   );
 };
 
-export default MineCourses;
+export default withAuth(MineCourses);

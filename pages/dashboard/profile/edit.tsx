@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Form, Input, Row, Space, Layout, Avatar } from "antd";
 import { UploadOutlined, UserOutlined } from "@ant-design/icons";
 import DashboardLayout from "../../../components/DashboardLayout";
+import withAuth from "../../../components/Auth/withAuth";
 
 function EditUser() {
   const layout = {
@@ -59,7 +60,11 @@ function EditUser() {
             </div>
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 3 }}>
-            <Button type="primary" htmlType="submit" style={{ backgroundColor: "#002140" }}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{ backgroundColor: "#002140" }}
+            >
               Submit
             </Button>
           </Form.Item>
@@ -69,4 +74,4 @@ function EditUser() {
   );
 }
 
-export default EditUser;
+export default withAuth(EditUser);

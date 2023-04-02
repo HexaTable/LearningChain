@@ -5,6 +5,7 @@ import DashboardLayout from "../../../components/DashboardLayout";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import MetaMaskButton from "../../../components/MetaMaskButton";
+import withAuth from "../../../components/Auth/withAuth";
 
 function User() {
   const { data: session } = useSession();
@@ -83,4 +84,4 @@ function User() {
   );
 }
 
-export default User;
+export default withAuth(User);
