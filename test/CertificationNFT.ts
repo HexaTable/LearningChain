@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
+/* eslint-enable @typescript-eslint/no-var-requires */
 
 describe("HelloNFT", function () {
   it("Should mint a new token with the correct metadata", async function () {
