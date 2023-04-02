@@ -27,25 +27,15 @@ const Index = () => {
                 LearningChain
               </h1>
               <h2 className="mt-2 mb-4 text-4xl font-light leading-relaxed text-primary text-center">
-                Peer to peer learning of the future.
+                The learning of the future.
               </h2>
-              {session ? (
-                <Link href="/dashboard/courses">
-                  <a>
-                    <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
-                      Join Us!
-                    </p>
-                  </a>
-                </Link>
-              ) : (
-                <Link href="/api/auth/signin">
-                  <a>
-                    <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
-                      Join Us!
-                    </p>
-                  </a>
-                </Link>
-              )}
+              <Link href={session ? "/dashboard/courses" : "/auth/signin"}>
+                <a>
+                  <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
+                    Join Us!
+                  </p>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -60,9 +50,8 @@ const Index = () => {
               <div className="flex flex-wrap">
                 <div className="container mx-auto w-f text-white mt-3">
                   <p className="text-center">
-                    Start, switch, or advance your career with more than 5,400
-                    courses, professional certificates, and degrees from
-                    world-class universities and companies.
+                    Start, switch, or advance your career with thousands of free
+                    courses, professional certificates and degrees.
                   </p>
                   <p className="text-center mt-4">
                     Or maybe create your own course and help teach other people
@@ -86,7 +75,7 @@ const Index = () => {
           <div className="flex flex-wrap justify-center mt-8">
             <div className="w-1/2 mx-auto">
               <h1 className="text-primary text-center text-xl font-extrabold">
-                Our Philosphy
+                Our Philosophy
               </h1>
               <div className="flex flex-wrap">
                 <div className="container mx-auto w-f text-primary mt-3">
@@ -103,7 +92,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <Footer> LearningChain™️ - BugsByte2023 - HexaTable</Footer>
+      <Footer> LearningChain™️ - BugsByte2023 - QuadraTable</Footer>
     </>
   );
 };

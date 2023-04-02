@@ -1,7 +1,9 @@
-import { HomeOutlined, SettingOutlined, BookOutlined } from "@ant-design/icons";
-import { Menu, Layout } from "antd";
-import Link from "next/link";
 import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { SettingOutlined, BookOutlined } from "@ant-design/icons";
+import { Menu, Layout } from "antd";
+
 const { Sider } = Layout;
 const { SubMenu, Item } = Menu;
 
@@ -14,12 +16,27 @@ function Sidebar() {
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
     >
-      <div className="logo" />
-
       <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-        <Item icon={<HomeOutlined />}>
-          <Link href="/">LOGO</Link>
-        </Item>
+
+        <Link href="/" className="cursor-pointer">
+          {collapsed ? (
+            <Image
+              src="/small-logo.svg"
+              alt="LearningChain Logo"
+              width={50}
+              height={50}
+              className="cursor-pointer ml-2"
+            />
+          ) : (
+            <Image
+              src="/logo.svg"
+              alt="LearningChain Logo"
+              width={190}
+              height={50}
+              className="cursor-pointer ml-2"
+            />
+          )}
+        </Link>
 
         <hr className="my-2" />
 
