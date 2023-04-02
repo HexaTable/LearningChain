@@ -21,22 +21,36 @@ contract HelloNFT is ERC721, Ownable {
 
     constructor() ERC721("HelloNFT", "HNFT") {}
 
-    function mintToken(address recipient, string memory tokenURI) public onlyOwner {
-        require(owner() != recipient, "Recipient cannot be the owner of the contract");
+    function mintToken(
+        address recipient,
+        string memory tokenURI
+    ) public onlyOwner {
+        require(
+            owner() != recipient,
+            "Recipient cannot be the owner of the contract"
+        );
 
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();
         _mint(recipient, newTokenId);
 
-        _tokenMetaData[newTokenId] = TokenMetadata(newTokenId, block.timestamp, tokenURI);
+        _tokenMetaData[newTokenId] = TokenMetadata(
+            newTokenId,
+            block.timestamp,
+            tokenURI
+        );
         _ownedTokens[recipient].push(newTokenId);
     }
 
-    function getOwnedTokens(address owner) public view returns (uint256[] memory) {
+    function getOwnedTokens(
+        address owner
+    ) public view returns (uint256[] memory) {
         return _ownedTokens[owner];
     }
 
-    function getTokenMetaData(uint256 tokenId) public view returns (TokenMetadata memory) {
+    function getTokenMetaData(
+        uint256 tokenId
+    ) public view returns (TokenMetadata memory) {
         require(_exists(tokenId), "Token not found");
         return _tokenMetaData[tokenId];
     }

@@ -29,7 +29,7 @@ const Index = () => {
               <h2 className="mt-2 mb-4 text-4xl font-light leading-relaxed text-primary text-center">
                 The learning of the future.
               </h2>
-              <Link href={session ? "/dashboard/courses" : "/auth/signin"}>
+              <Link href={session ? "/dashboard/courses" : "/api/auth/signin"}>
                 <a>
                   <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
                     Join Us!

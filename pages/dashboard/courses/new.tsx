@@ -1,12 +1,26 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { Button, Form, Input, Row, Space, Layout } from "antd";
+import { Button, Form, Input, Row, Space, Layout, Select } from "antd";
 
 import { notifySuccess, notifyError } from "../../../components/Notify";
 import DashboardLayout from "../../../components/DashboardLayout";
 import withAuth from "../../../components/Auth/withAuth";
+import { GetServerSideProps } from "next";
 
-function NewCourse() {
+import prisma from "../../../lib/prisma";
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const categories = await prisma.category.findMany();
+  const parsedCategories = JSON.parse(JSON.stringify(categories));
+
+  return {
+    props: {
+      categories: await Promise.all(parsedCategories),
+    },
+  };
+};
+
+function NewCourse({ categories }: any) {
   const router = useRouter();
 
   // Create course
@@ -63,7 +77,13 @@ function NewCourse() {
               label="Category"
               rules={[{ required: true }]}
             >
-              <Input />
+              <Select placeholder="Select a category">
+                {categories.map((category: any) => (
+                  <Select.Option key={category.id} value={category.name}>
+                    {category.name}
+                  </Select.Option>
+                ))}
+              </Select>
             </Form.Item>
 
             <Form.Item name="price" label="Price" rules={[{ required: true }]}>
