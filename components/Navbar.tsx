@@ -6,7 +6,6 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-
 import { Layout, Menu } from "antd";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
@@ -53,7 +52,7 @@ function Navbar() {
               title={session.user.name}
             >
               <Item key="/dashboard" icon={<DesktopOutlined />}>
-                <Link href="/dashboard">Dashboard</Link>
+                <Link href="/dashboard/courses">Dashboard</Link>
               </Item>
               <Item
                 key="/api/auth/signout"

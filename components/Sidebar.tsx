@@ -1,9 +1,4 @@
-import {
-  AppstoreOutlined,
-  HomeOutlined,
-  SettingOutlined,
-  BookOutlined,
-} from "@ant-design/icons";
+import { HomeOutlined, SettingOutlined, BookOutlined } from "@ant-design/icons";
 import { Menu, Layout } from "antd";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -28,10 +23,6 @@ function Sidebar() {
 
         <hr className="my-2" />
 
-        <Item icon={<AppstoreOutlined />}>
-          <Link href="/dashboard">Dashboard</Link>
-        </Item>
-
         <SubMenu icon={<BookOutlined />} title="Courses">
           <Item key="/courses">
             <Link href={"/dashboard/courses"}>List courses</Link>
@@ -48,7 +39,6 @@ function Sidebar() {
           <Item key="/profile">
             <Link href="/dashboard/profile">Profile</Link>
           </Item>
-          <Item key="/config">Configuration</Item>
         </SubMenu>
       </Menu>
     </Sider>
