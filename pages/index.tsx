@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import { Layout } from "antd";
+import { useSession } from "next-auth/react";
 
 const { Footer } = Layout;
 
@@ -13,6 +14,8 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Index = () => {
+  const { data: session } = useSession();
+
   return (
     <>
       <Navbar />
@@ -26,13 +29,23 @@ const Index = () => {
               <h2 className="mt-2 mb-4 text-4xl font-light leading-relaxed text-primary text-center">
                 Peer to peer learning of the future.
               </h2>
-              <Link href="/api/auth/signin">
-                <a>
-                  <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
-                    Join Us!
-                  </p>
-                </a>
-              </Link>
+              {session ? (
+                <Link href="/dashboard/courses">
+                  <a>
+                    <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
+                      Join Us!
+                    </p>
+                  </a>
+                </Link>
+              ) : (
+                <Link href="/api/auth/signin">
+                  <a>
+                    <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
+                      Join Us!
+                    </p>
+                  </a>
+                </Link>
+              )}
             </div>
           </div>
         </div>
