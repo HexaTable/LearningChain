@@ -2,7 +2,9 @@ import React from "react";
 import { GetStaticProps } from "next";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
+import { Layout } from "antd";
 
+const { Footer } = Layout;
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
@@ -24,41 +26,67 @@ const Index = () => {
               <h2 className="mt-2 mb-4 text-4xl font-light leading-relaxed text-primary text-center">
                 Peer to peer learning of the future.
               </h2>
-              <Link href={"/api/auth/login"} >
+              <Link key="/api/auth/signin" href="/api/auth/signin">
                 <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
-                  Join Us!</p>
+                  Join Us!
+                </p>
               </Link>
             </div>
           </div>
         </div>
       </section>
       <section className="bg-primary mt-12 overflow-hidden h-96">
+        <div className="container mx-auto mb-10">
+          <div className="flex flex-wrap justify-center mt-8">
+            <div className="w-1/2 mx-auto">
+              <h1 className="text-white text-center text-xl font-extrabold">
+                Create and Learn
+              </h1>
+              <div className="flex flex-wrap">
+                <div className="container mx-auto w-f text-white mt-3">
+                  <p className="text-center">
+                    Start, switch, or advance your career with more than 5,400
+                    courses, Professional Certificates, and degrees from
+                    world-class universities and companies.
+                  </p>
+                  <p className="text-center mt-4">
+                    Or maybe create your own course and help teach other people
+                    in the vast areas you are profeciante at.
+                  </p>
+                </div>
+              </div>
+              <a key="/explore" href="/explore">
+                <p className="w-1/2 mx-auto bg-white text-primary font-bold text-center text-bold text-xl mt-16 py-5 px-2 rounded-lg">
+                  Explore Courses
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-white mt-12 overflow-hidden h-full">
         <div className="container mx-auto mb-20">
           <div className="flex flex-wrap justify-center mt-8">
-            <div className="w-1/3">
-              <h1 className="text-white text-xl font-extrabold">Blockchain</h1>
-            </div>
-            <div className="w-2/3">
-              <h1 className="text-white text-xl font-extrabold">Create and Learn</h1>
+            <div className="w-1/2 mx-auto">
+              <h1 className="text-primary text-center text-xl font-extrabold">
+                Our Philosphy
+              </h1>
               <div className="flex flex-wrap">
-                <div className="w-2/3 text-white mt-3">
-                  <p>Start, switch, or advance your career with more than 5,400 courses, Professional Certificates, and degrees from world-class universities and companies.</p>
-                  <p className="mt-2">Or maybe create your own course and help teach other people in the vast areas you are profeciante at.</p>
-                </div>
-                <div className="w-1/3 text-white">
-                  Image
+                <div className="container mx-auto w-f text-primary mt-3">
+                  <p className="text-center">
+                    We believe education is one of the most aspects when it
+                    comes to being a memember of society. With that philosophy
+                    and technologies like Web3 and Blockchain being normalized
+                    more and more we believe its the time for Web3 to reach
+                    Education.
+                  </p>{" "}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="bg-white mt-12 overflow-hidden h-96">
-        <div className="container mx-auto mb-20">
-          <div className="flex flex-wrap justify-center mt-8">
-          </div>
-        </div>
-      </section>
+      <Footer> LearningChain™️ - BugsByte2023 - HexaTable</Footer >
     </>
   );
 };

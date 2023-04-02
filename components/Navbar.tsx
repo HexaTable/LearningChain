@@ -19,7 +19,7 @@ function Navbar() {
 
   const current_path = useRouter().pathname;
   const [current, setCurrent] = useState(current_path);
-  
+
   const router = useRouter();
 
   const onClick: MenuProps["onClick"] = (e) => {
