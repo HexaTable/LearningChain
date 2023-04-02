@@ -3,6 +3,7 @@ import { Button, Form, Row, Space, Layout, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import DashboardLayout from "../../../components/DashboardLayout";
 import { useSession } from "next-auth/react";
+import MetaMaskButton from "../../../components/MetaMaskButton";
 
 function User() {
   const { data: session } = useSession();
@@ -34,21 +35,32 @@ function User() {
           validateMessages={validateMessages}
         >
           <Row className="text-extrabold text-3xl my-3 mx-6">User Profile</Row>
-          <Space />
-          <Form.Item name={["user", "name"]} label="Name">
+          <Form.Item name={["user", "name"]} label="Name" className="mb-4">
             <p>{session?.user.name}</p>
           </Form.Item>
-          <Form.Item name={["user", "email"]} label="Email">
+          <Form.Item name={["user", "email"]} label="Email" className="mb-4">
             <p>{session?.user.email}</p>
           </Form.Item>
-          <Form.Item name={["user", "username"]} label="Username"></Form.Item>
-          <Form.Item name={["user", "introduction"]} label="Image">
+          <Form.Item
+            name={["user", "username"]}
+            label="Username"
+            className="mb-4"
+          ></Form.Item>
+          <Form.Item
+            name={["user", "introduction"]}
+            label="Image"
+            className="mb-8"
+          >
             <Space wrap size={16}>
               <Avatar shape="square" size={64} icon={<UserOutlined />} />
             </Space>
           </Form.Item>
+          <div className="flex items-center mb-16 ml-32">
+            <p className="ml-16">Wallet:</p>
+            <MetaMaskButton className="bg-blue-500 hover:bg-blue-800 ml-2" />
+          </div>
           <Form.Item>
-            <div className="flex flex-warp">
+            <div className="flex flex-wrap">
               <Button className="ml-64" href="/dashboard/profile/edit">
                 Edit Profile
               </Button>

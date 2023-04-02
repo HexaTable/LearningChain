@@ -2,7 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Button, Form, Input, Row, Space, Layout } from "antd";
 import DashboardLayout from "../../../components/DashboardLayout";
-import { NotifySucess, NotifyError } from "../../../components/Notify";
+import { NotifySuccess, NotifyError } from "../../../components/Notify";
 
 function NewCourse() {
   const router = useRouter();
@@ -15,7 +15,7 @@ function NewCourse() {
         body: JSON.stringify(values),
       });
 
-      NotifySucess("Info", "Course created");
+      NotifySuccess("Info", "Course created");
       router.push("/dashboard/courses");
     } catch (error) {
       NotifyError("Error", "It was not possible to create the course");

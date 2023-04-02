@@ -6,7 +6,7 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import type { MenuProps } from "antd";
+
 import { Layout, Menu } from "antd";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
@@ -18,7 +18,7 @@ function Navbar() {
   const { data: session } = useSession();
 
   const current_path = useRouter().pathname;
-  const [current, setCurrent] = useState(current_path);
+  const [current] = useState(current_path);
 
   const router = useRouter();
 
@@ -65,7 +65,7 @@ function Navbar() {
             </SubMenu>
           ) : (
             <Item key="/api/auth/signin" icon={<UserOutlined />}>
-              Login
+              <Link href="/api/auth/signin">Login</Link>
             </Item>
           )}
         </div>

@@ -8,18 +8,18 @@ export function NotifyInfo(message: string, description: string) {
   });
 }
 
-export function NotifySucess(message: string, description: string) {
+export function NotifySuccess(message: string, description: string, time = 5) {
   notification.success({
     message: message,
     description: description,
-    duration: 5,
+    duration: time,
   });
 }
 
-export function NotifyError(message: string, description: string) {
+export function NotifyError(message: string, description: string, time = 5) {
   notification.error({
     message: message,
     description: description,
-    duration: 5,
+    duration: time,
   });
 }
