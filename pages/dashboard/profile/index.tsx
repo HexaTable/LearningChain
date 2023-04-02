@@ -1,8 +1,7 @@
 import React from "react";
 import { Button, Form, Row, Space, Layout, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { useSession, signOut } from "next-auth/react";
-import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 import DashboardLayout from "../../../components/DashboardLayout";
 import MetaMaskButton from "../../../components/MetaMaskButton";
@@ -25,13 +24,6 @@ function User() {
     required: "${label} is required!",
   };
   /* eslint-enable no-template-curly-in-string */
-
-  const router = useRouter();
-
-  const logout = async () => {
-    await signOut();
-    router.push("/");
-  };
 
   return (
     <DashboardLayout>

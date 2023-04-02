@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 
 import { Button, Skeleton, Space, Tag } from "antd";
 import DashboardLayout from "../../../components/DashboardLayout";
+import { notifyError } from "../../../components/Notify";
 import withAuth from "../../../components/Auth/withAuth";
 
 function Course() {
@@ -11,15 +12,19 @@ function Course() {
   const [bought, setBought] = useState(false);
 
   const { data: session } = useSession();
-
   const router = useRouter();
 
   useEffect(() => {
     async function fetchCourse() {
-      const id = router.query.id;
-      const response = await fetch(`/api/courses/${id}`);
-      const data = await response.json();
-      setCourse(data);
+      try {
+        const id = router.query.id;
+        const response = await fetch(`/api/courses/${id}`);
+        const data = await response.json();
+        setCourse(data);
+      } catch (error) {
+        notifyError("Error", "Could not fetch course");
+        router.back();
+      }
     }
 
     fetchCourse();
@@ -32,12 +37,15 @@ function Course() {
       email: session?.user?.email,
     };
 
-    await fetch(`/api/courses/buy`, {
-      method: "POST",
-      body: JSON.stringify(body),
-    });
-
-    setBought(true);
+    try {
+      await fetch(`/api/courses/buy`, {
+        method: "POST",
+        body: JSON.stringify(body),
+      });
+      setBought(true);
+    } catch (error) {
+      notifyError("Error", "Could not buy course");
+    }
   };
 
   if (!course) {
