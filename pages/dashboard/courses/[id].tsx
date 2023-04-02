@@ -44,7 +44,7 @@ function Course() {
       });
       setBought(true);
     } catch (error) {
-      NotifyError("Error", "Could not buy course");
+      notifyError("Error", "Could not buy course");
     }
   };
 
