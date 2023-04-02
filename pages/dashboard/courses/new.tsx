@@ -1,8 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { Button, Form, Input, Row, Space, Layout } from "antd";
+
+import { notifySuccess, notifyError } from "../../../components/Notify";
 import DashboardLayout from "../../../components/DashboardLayout";
-import { NotifySuccess, NotifyError } from "../../../components/Notify";
+import withAuth from "../../../components/Auth/withAuth";
 
 function NewCourse() {
   const router = useRouter();
@@ -15,10 +17,10 @@ function NewCourse() {
         body: JSON.stringify(values),
       });
 
-      NotifySuccess("Info", "Course created");
+      notifySuccess("Info", "Course created");
       router.push("/dashboard/courses");
     } catch (error) {
-      NotifyError("Error", "It was not possible to create the course");
+      notifyError("Error", "It was not possible to create the course");
     }
   };
 
@@ -84,4 +86,4 @@ function NewCourse() {
   );
 }
 
-export default NewCourse;
+export default withAuth(NewCourse);

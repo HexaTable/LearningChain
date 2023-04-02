@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 
 import { Button, Skeleton, Space, Tag } from "antd";
 import DashboardLayout from "../../../components/DashboardLayout";
+import withAuth from "../../../components/Auth/withAuth";
 
 function Course() {
   const [course, setCourse] = useState(null);
@@ -81,4 +82,4 @@ function Course() {
   );
 }
 
-export default Course;
+export default withAuth(Course);

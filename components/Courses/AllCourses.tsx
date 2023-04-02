@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Pagination } from "antd";
 
-import CourseInfo from "../CourseInfo";
+import CourseInfo from "./CourseInfo";
 
 const AllCourses = ({ courses }: any) => {
   const [currentPage, setCurrentPage] = useState(1);

@@ -5,6 +5,7 @@ import { List, Space } from "antd";
 import DashboardLayout from "../../../components/DashboardLayout";
 
 import prisma from "../../../lib/prisma";
+import withAuth from "../../../components/Auth/withAuth";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const courses = await prisma.course.findMany();
@@ -97,4 +98,4 @@ const ListCourses: React.FC = ({ courses }: any) => (
   </DashboardLayout>
 );
 
-export default ListCourses;
+export default withAuth(ListCourses);
