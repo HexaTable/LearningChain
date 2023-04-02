@@ -1,5 +1,5 @@
-import { expect } from "chai";
-import { ethers } from "hardhat";
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
 
 describe("OnlineCourse", function () {
   let onlineCourse;
@@ -114,7 +114,7 @@ describe("OnlineCourse", function () {
       onlineCourse
         .connect(buyer)
         .purchaseCourse(userId, { value: paymentAmount })
-    ).to.be.revertedWith("Course already purchased");
+    ).to.be.rejectedWith("Course already purchased");
 
     const courseAfterBuy = await onlineCourse.course();
     expect(courseAfterBuy.totalStudents).to.equal(1);
