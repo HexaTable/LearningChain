@@ -26,7 +26,7 @@ const Index = () => {
               <h2 className="mt-2 mb-4 text-4xl font-light leading-relaxed text-primary text-center">
                 Peer to peer learning of the future.
               </h2>
-              <Link key="/api/auth/signin" href="/api/auth/signin">
+              <Link href="/api/auth/signin">
                 <a>
                   <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
                     Join Us!
@@ -57,7 +57,7 @@ const Index = () => {
                   </p>
                 </div>
               </div>
-              <Link key="/explore" href="/explore">
+              <Link href="/explore">
                 <a>
                   <p className="w-1/2 mx-auto bg-white text-primary font-bold text-center text-bold text-xl mt-16 py-5 px-2 rounded-lg">
                     Explore Courses

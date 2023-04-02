@@ -15,6 +15,7 @@ async function main() {
         wallet: faker.finance.bitcoinAddress(),
       },
     });
+
     console.log(`Created user with email: ${user.email}`);
   }
 
@@ -63,6 +64,24 @@ async function main() {
     });
 
     console.log(`Created course with name: ${result.name}`);
+  });
+
+  // Wait for courses to be created
+  await new Promise((r) => setTimeout(r, 1000));
+
+  // Seed users course purchases
+  const courses = await prisma.course.findMany();
+  users.map(async (user) => {
+    const random_course = courses[Math.floor(Math.random() * courses.length)];
+
+    const result = await prisma.userCoursesPurchased.create({
+      data: {
+        user: { connect: { id: user.id } },
+        course: { connect: { id: random_course.id } },
+      },
+    });
+
+    console.log(`Created user course purchase with id: ${result.id}`);
   });
 }
 

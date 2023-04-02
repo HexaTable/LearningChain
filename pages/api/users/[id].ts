@@ -1,8 +1,6 @@
-// pages/api/users/[id].ts
-
 import prisma from "../../../lib/prisma";
 
-// PUT /api/publish/:id
+// METHOD /api/users/:id
 export default async function handle(req, res) {
   const userId: string = req.query.id;
   const { name, image, wallet, rating } = req.body;
@@ -12,8 +10,10 @@ export default async function handle(req, res) {
     const user = await prisma.user.delete({
       where: { id: userId },
     });
-    res.json(user);
+
+    res.status(200).json(user);
   }
+
   // PUT /api/user/:id
   else if (req.method === "PUT") {
     const user = await prisma.user.update({
