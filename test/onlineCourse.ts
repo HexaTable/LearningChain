@@ -5,21 +5,22 @@ describe("OnlineCourse", function () {
   let onlineCourse;
   let owner;
   let buyer;
+  let courseId;
+  let price;
 
   beforeEach(async function () {
     const OnlineCourse = await ethers.getContractFactory("OnlineCourse");
     onlineCourse = await OnlineCourse.deploy();
-    await onlineCourse.deployed();
+    
+    const courseId = "course1";
+    const price = ethers.utils.parseEther("1");
+
+    await onlineCourse.deployed(courseId, price);
 
     [owner, buyer] = await ethers.getSigners();
   });
 
   it("should create a course", async function () {
-    const courseId = "course1";
-    const price = ethers.utils.parseEther("1");
-
-    await onlineCourse.createCourse(courseId, price);
-
     const course = await onlineCourse.course();
 
     expect(course.courseId).to.equal(courseId);
@@ -30,7 +31,6 @@ describe("OnlineCourse", function () {
 
   it("should buy a course", async function () {
     const userId = "user1234";
-    const price = ethers.utils.parseEther("1");
 
     await onlineCourse.createCourse(userId, price);
 
@@ -53,7 +53,6 @@ describe("OnlineCourse", function () {
 
   it("update course progress & finishes", async function () {
     const userId = "user1234";
-    const price = ethers.utils.parseEther("1");
 
     await onlineCourse.createCourse(userId, price);
     const paymentAmount = ethers.utils.parseEther("1");
@@ -92,8 +91,6 @@ describe("OnlineCourse", function () {
   });
 
   it("should not allow purchasing a course again", async function () {
-    const courseId = "course1";
-    const price = ethers.utils.parseEther("1");
     const userId = "user1";
 
     await onlineCourse.createCourse(courseId, price);
@@ -114,16 +111,13 @@ describe("OnlineCourse", function () {
       onlineCourse
         .connect(buyer)
         .purchaseCourse(userId, { value: paymentAmount })
-    ).to.be.revertedWith("Course already purchased");
+    ).to.be.rejectedWith("Course already purchased");
 
     const courseAfterBuy = await onlineCourse.course();
     expect(courseAfterBuy.totalStudents).to.equal(1);
   });
 
   it("should allow author to withdraw funds", async function () {
-    const courseId = "course1";
-    const price = ethers.utils.parseEther("1");
-
     await onlineCourse.createCourse(courseId, price);
 
     const paymentAmount = ethers.utils.parseEther("1");

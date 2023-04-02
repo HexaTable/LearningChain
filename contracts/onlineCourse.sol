@@ -1,6 +1,5 @@
-pragma solidity 0.8.18;
-
 // SPDX-License-Identifier: MIT
+pragma solidity 0.8.18;
 
 contract OnlineCourse {
     struct Course {
@@ -24,7 +23,7 @@ contract OnlineCourse {
     event CourseProgressUpdated(address student, string userId, uint256 progress);
     event CertificateIssued(address student, string userId, address certificate);
     
-    function createCourse(string memory courseId, uint256 price) public {
+    constructor(string memory courseId, uint256 price) public {
         require(bytes(courseId).length > 0, "Course ID cannot be empty");
         course = Course({
             courseId: courseId,
