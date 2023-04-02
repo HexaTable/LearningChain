@@ -1,5 +1,8 @@
 node_modules
 .env
 .next
+artifacts
+cache
 postgresql
 .swc
+cache

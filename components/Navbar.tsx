@@ -33,15 +33,16 @@ function Navbar() {
   };
 
   return (
-    <Header style={{ position: "sticky", top: 0, zIndex: 1, width: "100%" }}>
-      <Menu />
+    <Header>
       <Menu
         defaultSelectedKeys={["1"]}
         theme="dark"
         mode="horizontal"
         onClick={onClick}
         selectedKeys={[current]}
+        className="flex"
       >
+        <div className="justify-start mr-auto">
         <Item key="/" icon={<HomeOutlined />}>
           <Link href="/">Home</Link>
         </Item>
@@ -49,7 +50,8 @@ function Navbar() {
         <Item key="/explore" icon={<PieChartOutlined />}>
           <Link href="/explore">Explore</Link>
         </Item>
-
+        </div>
+        <div className="justify-end ml-auto">
         {session ? (
           <SubMenu
             className="float-left"
@@ -72,6 +74,7 @@ function Navbar() {
             Login
           </Item>
         )}
+        </div>
       </Menu>
     </Header>
   );
