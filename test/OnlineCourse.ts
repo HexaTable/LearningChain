@@ -34,7 +34,7 @@ describe("OnlineCourse", function () {
     const price = ethers.utils.parseEther("1");
 
     await onlineCourse.createCourse(courseId, price);
-    
+
     const initialBalance = await ethers.provider.getBalance(owner.address);
 
     const paymentAmount = ethers.utils.parseEther("1");
@@ -98,7 +98,9 @@ describe("OnlineCourse", function () {
       .purchaseCourse(courseId, { value: paymentAmount });
 
     await expect(
-      onlineCourse.connect(buyer).purchaseCourse(courseId, { value: paymentAmount })
+      onlineCourse
+        .connect(buyer)
+        .purchaseCourse(courseId, { value: paymentAmount })
     ).to.be.revertedWith("Course already purchased");
   });
 });
