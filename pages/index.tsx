@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import { Layout } from "antd";
+import { useSession } from "next-auth/react";
 
 const { Footer } = Layout;
 
@@ -13,6 +14,8 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Index = () => {
+  const { data: session } = useSession();
+
   return (
     <>
       <Navbar />
@@ -24,9 +27,9 @@ const Index = () => {
                 LearningChain
               </h1>
               <h2 className="mt-2 mb-4 text-4xl font-light leading-relaxed text-primary text-center">
-                Peer to peer learning of the future.
+                The learning of the future.
               </h2>
-              <Link key="/api/auth/signin" href="/api/auth/signin">
+              <Link href={session ? "/dashboard/courses" : "/auth/signin"}>
                 <a>
                   <p className="w-1/2 mx-auto bg-primary text-white font-bold text-center text-bold text-3xl py-5 px-2 rounded-lg">
                     Join Us!
@@ -47,9 +50,8 @@ const Index = () => {
               <div className="flex flex-wrap">
                 <div className="container mx-auto w-f text-white mt-3">
                   <p className="text-center">
-                    Start, switch, or advance your career with more than 5,400
-                    courses, professional certificates, and degrees from
-                    world-class universities and companies.
+                    Start, switch, or advance your career with thousands of free
+                    courses, professional certificates and degrees.
                   </p>
                   <p className="text-center mt-4">
                     Or maybe create your own course and help teach other people
@@ -57,7 +59,7 @@ const Index = () => {
                   </p>
                 </div>
               </div>
-              <Link key="/explore" href="/explore">
+              <Link href="/explore">
                 <a>
                   <p className="w-1/2 mx-auto bg-white text-primary font-bold text-center text-bold text-xl mt-16 py-5 px-2 rounded-lg">
                     Explore Courses
@@ -73,7 +75,7 @@ const Index = () => {
           <div className="flex flex-wrap justify-center mt-8">
             <div className="w-1/2 mx-auto">
               <h1 className="text-primary text-center text-xl font-extrabold">
-                Our Philosphy
+                Our Philosophy
               </h1>
               <div className="flex flex-wrap">
                 <div className="container mx-auto w-f text-primary mt-3">
@@ -90,7 +92,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <Footer> LearningChain™️ - BugsByte2023 - HexaTable</Footer>
+      <Footer> LearningChain™️ - BugsByte2023 - QuadraTable</Footer>
     </>
   );
 };

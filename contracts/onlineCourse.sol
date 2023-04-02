@@ -15,7 +15,7 @@ contract OnlineCourse {
         uint256 progress;
         address certificate;
     }
-    
+
     mapping(address => CourseProgress) public courseProgress;
     
     event CoursePurchased(address student, uint256 price);
@@ -58,9 +58,4 @@ contract OnlineCourse {
             emit CertificateIssued(msg.sender, certificate);
         }
     }
-    
-    // function withdraw() public {
-    //     require(msg.sender == course.author, "Only course author can withdraw");
-    //     payable(msg.sender).transfer(address(this).balance);
-    // }
 }

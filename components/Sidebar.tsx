@@ -1,12 +1,9 @@
-import {
-  AppstoreOutlined,
-  HomeOutlined,
-  SettingOutlined,
-  BookOutlined,
-} from "@ant-design/icons";
-import { Menu, Layout } from "antd";
-import Link from "next/link";
 import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { SettingOutlined, BookOutlined } from "@ant-design/icons";
+import { Menu, Layout } from "antd";
+
 const { Sider } = Layout;
 const { SubMenu, Item } = Menu;
 
@@ -19,18 +16,29 @@ function Sidebar() {
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
     >
-      <div className="logo" />
-
       <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-        <Item icon={<HomeOutlined />}>
-          <Link href="/">LOGO</Link>
-        </Item>
+
+        <Link href="/" className="cursor-pointer">
+          {collapsed ? (
+            <Image
+              src="/small-logo.svg"
+              alt="LearningChain Logo"
+              width={50}
+              height={50}
+              className="cursor-pointer ml-2"
+            />
+          ) : (
+            <Image
+              src="/logo.svg"
+              alt="LearningChain Logo"
+              width={190}
+              height={50}
+              className="cursor-pointer ml-2"
+            />
+          )}
+        </Link>
 
         <hr className="my-2" />
-
-        <Item icon={<HomeOutlined />}>
-          <Link href="/dashboard">Home</Link>
-        </Item>
 
         <SubMenu icon={<BookOutlined />} title="Courses">
           <Item key="/courses">
@@ -39,19 +47,16 @@ function Sidebar() {
           <Item key="/courses/new">
             <Link href="/dashboard/courses/new">New course</Link>
           </Item>
+          <Item key="/courses/mine">
+            <Link href="/dashboard/courses/mine">My courses</Link>
+          </Item>
         </SubMenu>
 
         <SubMenu icon={<SettingOutlined />} title="Settings">
           <Item key="/profile">
             <Link href="/dashboard/profile">Profile</Link>
           </Item>
-          <Item key="/config">Configuration</Item>
         </SubMenu>
-
-        <Item icon={<AppstoreOutlined />}>
-          {" "}
-          <Link href="/"> Go Back</Link>
-        </Item>
       </Menu>
     </Sider>
   );

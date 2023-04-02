@@ -5,6 +5,7 @@ import { List, Space } from "antd";
 import DashboardLayout from "../../../components/DashboardLayout";
 
 import prisma from "../../../lib/prisma";
+import withAuth from "../../../components/Auth/withAuth";
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const courses = await prisma.course.findMany();
@@ -41,6 +42,7 @@ interface CourseProps {
   rating: number;
   price: number;
   category: string;
+  numReviews: number;
 }
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
@@ -49,13 +51,6 @@ const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
     {text}
   </Space>
 );
-
-const getRandomInt = (min: number, max: number) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-
-  return Math.floor(Math.random() * (max - min)) + min;
-};
 
 const ListCourses: React.FC = ({ courses }: any) => (
   <DashboardLayout>
@@ -78,7 +73,7 @@ const ListCourses: React.FC = ({ courses }: any) => (
             />,
             <IconText
               icon={MessageOutlined}
-              text={getRandomInt(0, 10).toString()}
+              text={course.numReviews.toString()}
               key="list-vertical-messages"
             />,
           ]}
@@ -103,4 +98,4 @@ const ListCourses: React.FC = ({ courses }: any) => (
   </DashboardLayout>
 );
 
-export default ListCourses;
+export default withAuth(ListCourses);
