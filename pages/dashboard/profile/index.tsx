@@ -72,9 +72,6 @@ function User() {
               <Button className="ml-64" href="/dashboard/profile/edit">
                 Edit Profile
               </Button>
-              <Button className="ml-8" href="/" onClick={logout}>
-                Log Out
-              </Button>
             </div>
           </Form.Item>
         </Form>
