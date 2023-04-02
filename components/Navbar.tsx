@@ -57,9 +57,13 @@ function Navbar() {
             title={session.user.name}
           >
             <Item key="/dashboard" icon={<DesktopOutlined />}>
-              <Link href="/">Dashboard</Link>
+              <Link href="/dashboard">Dashboard</Link>
             </Item>
-            <Item onClick={logout} icon={<UserOutlined />}>
+            <Item
+              key="/api/auth/signout"
+              onClick={logout}
+              icon={<UserOutlined />}
+            >
               Log out
             </Item>
           </SubMenu>
