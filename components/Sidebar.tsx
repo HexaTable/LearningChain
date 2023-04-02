@@ -17,7 +17,6 @@ function Sidebar() {
       onCollapse={(value) => setCollapsed(value)}
     >
       <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-
         <Link href="/" className="cursor-pointer">
           {collapsed ? (
             <Image
