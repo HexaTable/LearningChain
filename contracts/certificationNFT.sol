@@ -2,35 +2,42 @@
 pragma solidity 0.8.18;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract CertificationNFT is ERC721 {
-    struct Certification {
-        string courseName;
-        string completionDate;
-        address owner;
+contract HelloNFT is ERC721, Ownable {
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenIds;
+
+    mapping(address => uint256[]) private _ownedTokens;
+
+    struct TokenMetadata {
+        uint256 tokenId;
+        uint256 timeStamp;
+        string tokenURI;
     }
 
-    uint256 private _totalSupply;
-    mapping (uint256 => Certification) private _certifications;
+    mapping(uint256 => TokenMetadata) private _tokenMetaData;
 
-    constructor() ERC721("CertificationNFT", "CERT") {}
+    constructor() ERC721("HelloNFT", "HNFT") {}
 
-    function issueCertification(Certification memory certification) public returns (uint256) {
-        uint256 newCertificationId = _totalSupply + 1;
-        _mint(msg.sender, newCertificationId);
+    function mintToken(address recipient, string memory tokenURI) public onlyOwner {
+        require(owner() != recipient, "Recipient cannot be the owner of the contract");
 
-        _certifications[newCertificationId] = certification;
-        _totalSupply++;
+        _tokenIds.increment();
+        uint256 newTokenId = _tokenIds.current();
+        _mint(recipient, newTokenId);
 
-        return newCertificationId;
+        _tokenMetaData[newTokenId] = TokenMetadata(newTokenId, block.timestamp, tokenURI);
+        _ownedTokens[recipient].push(newTokenId);
     }
 
-    function totalSupply() public view returns (uint256) {
-        return _totalSupply;
+    function getOwnedTokens(address owner) public view returns (uint256[] memory) {
+        return _ownedTokens[owner];
     }
 
-    function getCertification(uint256 tokenId) public view returns (Certification memory) {
-        require(_exists(tokenId), "CertificationNFT: certification does not exist");
-        return _certifications[tokenId];
+    function getTokenMetaData(uint256 tokenId) public view returns (TokenMetadata memory) {
+        require(_exists(tokenId), "Token not found");
+        return _tokenMetaData[tokenId];
     }
 }
