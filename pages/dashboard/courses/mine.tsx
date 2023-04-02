@@ -5,6 +5,7 @@ import { StarOutlined, MessageOutlined } from "@ant-design/icons";
 import { List, Space } from "antd";
 
 import DashboardLayout from "../../../components/DashboardLayout";
+import withAuth from "../../../components/Auth/withAuth";
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
   <Space>
