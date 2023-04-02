@@ -41,14 +41,22 @@ function User() {
           <Form.Item name={["user", "email"]} label="Email" className="mb-4">
             <p>{session?.user.email}</p>
           </Form.Item>
-          <Form.Item name={["user", "username"]} label="Username" className="mb-4"></Form.Item>
-          <Form.Item name={["user", "introduction"]} label="Image" className="mb-8">
+          <Form.Item
+            name={["user", "username"]}
+            label="Username"
+            className="mb-4"
+          ></Form.Item>
+          <Form.Item
+            name={["user", "introduction"]}
+            label="Image"
+            className="mb-8"
+          >
             <Space wrap size={16}>
               <Avatar shape="square" size={64} icon={<UserOutlined />} />
             </Space>
           </Form.Item>
           <div className="flex items-center mb-16 ml-32">
-            <p className="ml-16">Wallet:</p> 
+            <p className="ml-16">Wallet:</p>
             <MetaMaskButton className="bg-blue-500 hover:bg-blue-800 ml-2" />
           </div>
           <Form.Item>
