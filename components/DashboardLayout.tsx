@@ -1,5 +1,5 @@
 import { Layout } from "antd";
-import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "./Sidebar";
 
 const DashboardLayout: React.FC = ({
   children,

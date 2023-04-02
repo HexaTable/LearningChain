@@ -1,6 +1,8 @@
 import { PrismaClient } from "@prisma/client";
 import { faker } from "@faker-js/faker";
 
+import coursesData from "../data/courses.json";
+
 const prisma = new PrismaClient();
 
 async function main() {
@@ -17,35 +19,51 @@ async function main() {
   }
 
   // Seed categories
-  for (let i = 0; i < 10; i++) {
+  const categories = [
+    "Cybersecurity",
+    "Artificial Intelligence",
+    "Web Development",
+    "Data Science",
+    "Machine Learning",
+    "Mobile Development",
+    "Blockchain",
+    "Game Development",
+    "Computer Science",
+    "Finance",
+  ];
+  ("");
+  for (let i = 0; i < categories.length; i++) {
     const category = await prisma.category.create({
       data: {
-        name: faker.commerce.department(),
+        name: categories[i],
       },
     });
+
     console.log(`Created category with name: ${category.name}`);
   }
 
   // Seed courses
   const users = await prisma.user.findMany();
-  const categories = await prisma.category.findMany();
-  for (let i = 0; i < 10; i++) {
-    const random_category =
-      categories[Math.floor(Math.random() * categories.length)];
+  coursesData.map(async (course) => {
     const random_user = users[Math.floor(Math.random() * users.length)];
+    const category = await prisma.category.findFirst({
+      where: { name: course.category },
+    });
 
-    const course = await prisma.course.create({
+    const result = await prisma.course.create({
       data: {
-        name: faker.commerce.productName(),
+        name: course.name,
         author: { connect: { id: random_user.id } },
-        description: faker.lorem.paragraph(),
-        price: Math.random() * 100,
-        category: { connect: { id: random_category.id } },
-        rating: Math.random() * 5,
+        description: course.description,
+        price: course.price,
+        category: { connect: { id: category.id } },
+        rating: course.rating,
+        numReviews: course.num_reviews,
       },
     });
-    console.log(`Created course with name: ${course.name}`);
-  }
+
+    console.log(`Created course with name: ${result.name}`);
+  });
 }
 
 // Seed the database
