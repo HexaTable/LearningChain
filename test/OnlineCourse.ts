@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
+/* eslint-enable @typescript-eslint/no-var-requires */
 
 describe("OnlineCourse", function () {
   let onlineCourse;

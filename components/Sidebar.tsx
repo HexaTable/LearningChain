@@ -28,8 +28,8 @@ function Sidebar() {
 
         <hr className="my-2" />
 
-        <Item icon={<HomeOutlined />}>
-          <Link href="/dashboard">Home</Link>
+        <Item icon={<AppstoreOutlined />}>
+          <Link href="/dashboard">Dashboard</Link>
         </Item>
 
         <SubMenu icon={<BookOutlined />} title="Courses">
@@ -39,6 +39,9 @@ function Sidebar() {
           <Item key="/courses/new">
             <Link href="/dashboard/courses/new">New course</Link>
           </Item>
+          <Item key="/courses/mine">
+            <Link href="/dashboard/courses/mine">My courses</Link>
+          </Item>
         </SubMenu>
 
         <SubMenu icon={<SettingOutlined />} title="Settings">
@@ -47,11 +50,6 @@ function Sidebar() {
           </Item>
           <Item key="/config">Configuration</Item>
         </SubMenu>
-
-        <Item icon={<AppstoreOutlined />}>
-          {" "}
-          <Link href="/"> Go Back</Link>
-        </Item>
       </Menu>
     </Sider>
   );

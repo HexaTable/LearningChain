@@ -1,8 +1,8 @@
 import { getSession } from "next-auth/react";
+
 import prisma from "../../../lib/prisma";
 
 // METHOD /api/courses
-// Required fields in body: name, description, category, price, author
 export default async function handle(req: any, res: any) {
   const session = await getSession({ req });
   const body = JSON.parse(req.body);

@@ -6,7 +6,7 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import type { MenuProps } from "antd";
+
 import { Layout, Menu } from "antd";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
@@ -18,14 +18,9 @@ function Navbar() {
   const { data: session } = useSession();
 
   const current_path = useRouter().pathname;
-  const [current, setCurrent] = useState(current_path);
+  const [current] = useState(current_path);
 
   const router = useRouter();
-
-  const onClick: MenuProps["onClick"] = (e) => {
-    setCurrent(e.key);
-    router.push(e.key);
-  };
 
   const logout = async () => {
     await signOut();
@@ -38,7 +33,6 @@ function Navbar() {
         defaultSelectedKeys={["1"]}
         theme="dark"
         mode="horizontal"
-        onClick={onClick}
         selectedKeys={[current]}
         className="flex"
       >
@@ -59,15 +53,19 @@ function Navbar() {
               title={session.user.name}
             >
               <Item key="/dashboard" icon={<DesktopOutlined />}>
-                <Link href="/">Dashboard</Link>
+                <Link href="/dashboard">Dashboard</Link>
               </Item>
-              <Item onClick={logout} icon={<UserOutlined />}>
+              <Item
+                key="/api/auth/signout"
+                onClick={logout}
+                icon={<UserOutlined />}
+              >
                 Log out
               </Item>
             </SubMenu>
           ) : (
             <Item key="/api/auth/signin" icon={<UserOutlined />}>
-              Login
+              <Link href="/api/auth/signin">Login</Link>
             </Item>
           )}
         </div>
