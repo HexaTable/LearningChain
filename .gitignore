@@ -3,6 +3,5 @@ node_modules
 .next
 artifacts
 cache
-package-lock.json
 postgresql
 .swc
