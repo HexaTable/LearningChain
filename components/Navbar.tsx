@@ -43,33 +43,33 @@ function Navbar() {
         className="flex"
       >
         <div className="justify-start mr-auto">
-        <Item key="/" icon={<HomeOutlined />}>
-          <Link href="/">Home</Link>
-        </Item>
+          <Item key="/" icon={<HomeOutlined />}>
+            <Link href="/">Home</Link>
+          </Item>
 
-        <Item key="/explore" icon={<PieChartOutlined />}>
-          <Link href="/explore">Explore</Link>
-        </Item>
+          <Item key="/explore" icon={<PieChartOutlined />}>
+            <Link href="/explore">Explore</Link>
+          </Item>
         </div>
         <div className="justify-end ml-auto">
-        {session ? (
-          <SubMenu
-            className="float-left"
-            icon={<UserOutlined />}
-            title={session.user.name}
-          >
-            <Item key="/dashboard" icon={<DesktopOutlined />}>
-              <Link href="/">Dashboard</Link>
+          {session ? (
+            <SubMenu
+              className="float-left"
+              icon={<UserOutlined />}
+              title={session.user.name}
+            >
+              <Item key="/dashboard" icon={<DesktopOutlined />}>
+                <Link href="/">Dashboard</Link>
+              </Item>
+              <Item onClick={logout} icon={<UserOutlined />}>
+                Log out
+              </Item>
+            </SubMenu>
+          ) : (
+            <Item key="/api/auth/signin" icon={<UserOutlined />}>
+              Login
             </Item>
-            <Item onClick={logout} icon={<UserOutlined />}>
-              Log out
-            </Item>
-          </SubMenu>
-        ) : (
-          <Item key="/api/auth/signin" icon={<UserOutlined />}>
-            Login
-          </Item>
-        )}
+          )}
         </div>
       </Menu>
     </Header>

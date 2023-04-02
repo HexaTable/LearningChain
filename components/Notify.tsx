@@ -8,7 +8,7 @@ export function NotifyInfo(message: string, description: string) {
   });
 }
 
-export function NotifySuccess(message: string, description: string, time = 5 ) {
+export function NotifySuccess(message: string, description: string, time = 5) {
   notification.success({
     message: message,
     description: description,
