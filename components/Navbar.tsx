@@ -9,14 +9,17 @@ import {
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 const { SubMenu, Item } = Menu;
 const { Header } = Layout;
 
 function Navbar() {
   const { data: session } = useSession();
-  const [current, setCurrent] = useState("/");
+
+  const current_path = useRouter().pathname;
+  const [current, setCurrent] = useState(current_path);
+
   const router = useRouter();
 
   const onClick: MenuProps["onClick"] = (e) => {
@@ -24,16 +27,22 @@ function Navbar() {
     router.push(e.key);
   };
 
+  const logout = async () => {
+    await signOut();
+    router.push("/");
+  };
+
   return (
-    <Header style={{ position: "sticky", top: 0, zIndex: 1, width: "100%" }}>
-      <Menu />
+    <Header>
       <Menu
         defaultSelectedKeys={["1"]}
         theme="dark"
         mode="horizontal"
         onClick={onClick}
         selectedKeys={[current]}
+        className="flex"
       >
+        <div className="justify-start mr-auto">
         <Item key="/" icon={<HomeOutlined />}>
           <Link href="/">Home</Link>
         </Item>
@@ -41,7 +50,8 @@ function Navbar() {
         <Item key="/explore" icon={<PieChartOutlined />}>
           <Link href="/explore">Explore</Link>
         </Item>
-
+        </div>
+        <div className="justify-end ml-auto">
         {session ? (
           <SubMenu
             className="float-left"
@@ -49,17 +59,18 @@ function Navbar() {
             title={session.user.name}
           >
             <Item key="/dashboard" icon={<DesktopOutlined />}>
-              <Link href="/dashboard">Dashboard</Link>
+              <Link href="/">Dashboard</Link>
             </Item>
-            <Item icon={<UserOutlined />}>
-              <Link href="/api/auth/logout">Log Out</Link>
+            <Item onClick={logout} icon={<UserOutlined />}>
+              Log out
             </Item>
           </SubMenu>
         ) : (
-          <Item icon={<UserOutlined />}>
-            <Link href="/api/auth/signin">LogIn</Link>
+          <Item key="/api/auth/signin" icon={<UserOutlined />}>
+            Login
           </Item>
         )}
+        </div>
       </Menu>
     </Header>
   );
