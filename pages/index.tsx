@@ -79,9 +79,9 @@ const Index = () => {
                 <div className="container mx-auto w-f text-primary mt-3">
                   <p className="text-center">
                     We believe education is one of the most aspects when it
-                    comes to being a member of society. With that philosophy
-                    and technologies like Web3 and Blockchain being normalized
-                    more and more we believe its the time for Web3 to reach
+                    comes to being a member of society. With that philosophy and
+                    technologies like Web3 and Blockchain being normalized more
+                    and more we believe its the time for Web3 to reach
                     Education.
                   </p>{" "}
                 </div>
@@ -90,7 +90,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <Footer> LearningChain™️ - BugsByte2023 - HexaTable</Footer >
+      <Footer> LearningChain™️ - BugsByte2023 - HexaTable</Footer>
     </>
   );
 };
