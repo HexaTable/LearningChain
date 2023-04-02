@@ -58,21 +58,18 @@ describe("OnlineCourse", function () {
     await onlineCourse.connect(buyer).purchaseCourse(userId, { value: paymentAmount });
 
     const progress = 100;
-    const completed = true;
     const certificate = buyer.address;
 
-    await onlineCourse.connect(buyer).updateCourseProgress(userId, progress, completed, certificate);
+    await onlineCourse.connect(buyer).updateCourseProgress(userId, progress, certificate);
 
     const courseProgress = await onlineCourse.courseProgress(buyer.address);
     expect(courseProgress.userId).to.equal(userId);
     expect(courseProgress.progress).to.equal(progress);
-    expect(courseProgress.completed).to.equal(completed);
     expect(courseProgress.certificate).to.equal(certificate);
 
     const emittedCourseProgressUpdatedEvent = (await onlineCourse.queryFilter("CourseProgressUpdated"))[0];
     expect(emittedCourseProgressUpdatedEvent.args.userId).to.equal(userId);
     expect(emittedCourseProgressUpdatedEvent.args.progress).to.equal(progress);
-    expect(emittedCourseProgressUpdatedEvent.args.completed).to.equal(completed);
     expect(emittedCourseProgressUpdatedEvent.args.student).to.equal(buyer.address);
 
     const emittedCertificateIssuedEvent = (await onlineCourse.queryFilter("CertificateIssued"))[0];

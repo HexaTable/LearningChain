@@ -15,14 +15,13 @@ contract OnlineCourse {
     struct CourseProgress {
         string userId;
         uint256 progress;
-        bool completed;
         address certificate;
     }
     
     mapping(address => CourseProgress) public courseProgress;
     
     event CoursePurchased(address buyer, string userId, uint256 price);
-    event CourseProgressUpdated(address student, string userId, uint256 progress, bool completed);
+    event CourseProgressUpdated(address student, string userId, uint256 progress);
     event CertificateIssued(address student, string userId, address certificate);
     
     function createCourse(string memory courseId, uint256 price) public {
@@ -43,20 +42,22 @@ contract OnlineCourse {
         require(bytes(courseProgress[msg.sender].userId).length == 0, "Course already purchased");
         
         course.totalStudents += 1;
-        courseProgress[msg.sender] = CourseProgress(userId, 0, false, address(0));
+        courseProgress[msg.sender] = CourseProgress(userId, 0, address(0));
         
         emit CoursePurchased(msg.sender, userId, msg.value);
     }
     
-    function updateCourseProgress(string memory userId, uint256 progress, bool completed, address certificate) public {
+    function updateCourseProgress(string memory userId, uint256 progress, address certificate) public {
         require(bytes(userId).length > 0, "Course ID cannot be empty");
         require(bytes(courseProgress[msg.sender].userId).length > 0, "Course not purchased");
+        require(progress <= 100, "Progress cannot be greater than 100");
+        require(progress > courseProgress[msg.sender].progress, "Progress cannot be less than previous progress");
         
-        courseProgress[msg.sender] = CourseProgress(userId, progress, completed, certificate);
+        courseProgress[msg.sender] = CourseProgress(userId, progress, certificate);
         
-        emit CourseProgressUpdated(msg.sender, userId, progress, completed);
+        emit CourseProgressUpdated(msg.sender, userId, progress);
         
-        if (completed && certificate != address(0)) {
+        if (progress == 100 && certificate != address(0)) {
             emit CertificateIssued(msg.sender, userId, certificate);
         }
     }
