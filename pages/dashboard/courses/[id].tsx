@@ -4,7 +4,8 @@ import { useSession } from "next-auth/react";
 
 import { Button, Skeleton, Space, Tag } from "antd";
 import DashboardLayout from "../../../components/DashboardLayout";
-import { NotifyError } from "../../../components/Notify";
+import { notifyError } from "../../../components/Notify";
+import withAuth from "../../../components/Auth/withAuth";
 
 function Course() {
   const [course, setCourse] = useState(null);
@@ -21,7 +22,7 @@ function Course() {
         const data = await response.json();
         setCourse(data);
       } catch (error) {
-        NotifyError("Error", "Could not fetch course");
+        notifyError("Error", "Could not fetch course");
         router.back();
       }
     }
@@ -89,4 +90,4 @@ function Course() {
   );
 }
 
-export default Course;
+export default withAuth(Course);

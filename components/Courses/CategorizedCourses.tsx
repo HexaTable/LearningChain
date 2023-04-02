@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Pagination, Select } from "antd";
-import CourseInfo from "../CourseInfo";
+import CourseInfo from "./CourseInfo";
 
 const { Option } = Select;
 

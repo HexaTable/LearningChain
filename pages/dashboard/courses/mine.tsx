@@ -5,8 +5,9 @@ import { StarOutlined, MessageOutlined } from "@ant-design/icons";
 import { List, Space } from "antd";
 
 import DashboardLayout from "../../../components/DashboardLayout";
-import { NotifyError } from "../../../components/Notify";
+import { notifyError } from "../../../components/Notify";
 import { useRouter } from "next/router";
+import withAuth from "../../../components/Auth/withAuth";
 
 const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
   <Space>
@@ -41,7 +42,7 @@ const MineCourses = () => {
         const data = await response.json();
         setCourses(data);
       } catch (error) {
-        NotifyError("Error", "Could not fetch courses");
+        notifyError("Error", "Could not fetch courses");
         router.back();
       }
     };
@@ -95,4 +96,4 @@ const MineCourses = () => {
   );
 };
 
-export default MineCourses;
+export default withAuth(MineCourses);

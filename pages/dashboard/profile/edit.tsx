@@ -1,7 +1,9 @@
 import React from "react";
 import { Button, Form, Input, Row, Space, Layout, Avatar } from "antd";
 import { UploadOutlined, UserOutlined } from "@ant-design/icons";
+
 import DashboardLayout from "../../../components/DashboardLayout";
+import withAuth from "../../../components/Auth/withAuth";
 
 function EditUser() {
   const layout = {
@@ -73,4 +75,4 @@ function EditUser() {
   );
 }
 
-export default EditUser;
+export default withAuth(EditUser);
