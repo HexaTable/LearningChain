@@ -1,8 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { Button, Form, Input, Row, Space, Layout } from "antd";
-import DashboardLayout from "../../../components/DashboardLayout";
+
 import { notifySuccess, notifyError } from "../../../components/Notify";
+import DashboardLayout from "../../../components/DashboardLayout";
+import withAuth from "../../../components/Auth/withAuth";
 
 function NewCourse() {
   const router = useRouter();

@@ -1,9 +1,10 @@
 import React from "react";
 import { Button, Form, Row, Space, Layout, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import DashboardLayout from "../../../components/DashboardLayout";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
+
+import DashboardLayout from "../../../components/DashboardLayout";
 import MetaMaskButton from "../../../components/MetaMaskButton";
 import withAuth from "../../../components/Auth/withAuth";
 
