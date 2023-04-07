@@ -3,7 +3,7 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 /* eslint-enable @typescript-eslint/no-var-requires */
 
-describe("OnlineCourse", function () {
+describe("LearningChain", function () {
   let learningChain;
   let owner;
   let buyer;
