@@ -20,8 +20,11 @@ contract LearningChain is ERC721, Ownable {
 
     constructor() ERC721("LearningChain", "LC") {}
 
-    function createCourse(string memory _id, string memory _name, uint256 _price) 
-    public {
+    function createCourse(
+        string memory _id,
+        string memory _name,
+        uint256 _price
+    ) public {
         require(courses[_id].author == address(0), "Course already exists");
 
         address payable authorPayable = payable(msg.sender);
@@ -31,7 +34,10 @@ contract LearningChain is ERC721, Ownable {
 
     function buyCourse(string memory _id) public payable {
         require(courses[_id].author != address(0), "Course does not exist");
-        require(msg.value >= courses[_id].price, "You must pay the correct amount");
+        require(
+            msg.value >= courses[_id].price,
+            "You must pay the correct amount"
+        );
         require(buyers[msg.sender] == false, "You already bought this course");
 
         // Transfer ether from buyer to author

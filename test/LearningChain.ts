@@ -71,9 +71,9 @@ describe("OnlineCourse", function () {
     });
 
     it("should emit a 'Course does not exist' error", async function () {
-      await expect(learningChain.connect(buyer).buyCourse("12345", { value: price })).to.be.revertedWith(
-        "Course does not exist"
-      );
+      await expect(
+        learningChain.connect(buyer).buyCourse("12345", { value: price })
+      ).to.be.revertedWith("Course does not exist");
     });
   });
 
@@ -99,7 +99,9 @@ describe("OnlineCourse", function () {
     });
 
     it("should emit a 'You must buy this course first' error", async function () {
-      await expect(learningChain.mint(id, buyer.address)).to.be.revertedWith("You must buy this course first");
+      await expect(learningChain.mint(id, buyer.address)).to.be.revertedWith(
+        "You must buy this course first"
+      );
     });
   });
 });
