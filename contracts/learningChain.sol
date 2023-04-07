@@ -14,10 +14,9 @@ contract LearningChain is ERC721, Ownable {
         uint256 price;
     }
 
-    mapping(address => bool) buyers;
+    mapping(address => bool) public buyers;
     mapping(string => Course) public courses;
-    mapping(uint256 => address) public emittedTokens;
-
+    mapping(uint256 => address) public emittedCertificates;
 
     constructor() ERC721("LearningChain", "LC") {}
 
@@ -46,9 +45,9 @@ contract LearningChain is ERC721, Ownable {
         return courses[_id];
     }
 
-    function mint(string memory _id) public {
+    function mint(string memory _id, address buyer) public onlyOwner {
         require(courses[_id].author != address(0), "Course does not exist");
-        require(buyers[msg.sender] == true, "You must buy this course first");
+        require(buyers[buyer] == true, "You must buy this course first");
 
         _mint(msg.sender, tokenCounter);
         tokenCounter++;
